@@ -26,6 +26,7 @@ public class FileIO {
             if (lines.length != 0) {
                 for (String line : lines) {
                     writer.format(line);    // Write the line to the file
+                    //haha
                 }
             }
         } catch (SecurityException | IOException ex) {
