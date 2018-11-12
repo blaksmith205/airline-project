@@ -1,13 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="github.airlineproject.fxml.MainMenuController">
+<AnchorPane id="AnchorPane" prefHeight="283.0" prefWidth="275.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="github.airlineproject.fxml.MainMenuController">
    <children>
-      <ChoiceBox layoutX="85.0" layoutY="49.0" prefWidth="150.0" />
+      <VBox layoutX="44.0" layoutY="58.0" prefHeight="84.0" prefWidth="187.0" spacing="20.0">
+         <children>
+            <VBox fx:id="segment1" spacing="10.0">
+               <children>
+                  <Label text="Add Flight" textAlignment="CENTER">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <HBox VBox.vgrow="ALWAYS">
+                     <children>
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Button mnemonicParsing="false" onAction="#createFlight" text="Create Flight" />
+                        <Region HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox fx:id="segment2" spacing="10.0">
+               <children>
+                  <Label text="Make Reservation" />
+                  <ChoiceBox fx:id="flightChoice" prefHeight="25.0" prefWidth="190.0" HBox.hgrow="ALWAYS" />
+                  <HBox>
+                     <children>
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Button fx:id="reserveButton" disable="true" mnemonicParsing="false" onAction="#makeReservation" text="New Reservation" />
+                        <Region HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+      <Label layoutX="44.0" layoutY="14.0" text="Airline Main Menu">
+         <font>
+            <Font name="Times New Roman" size="24.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
