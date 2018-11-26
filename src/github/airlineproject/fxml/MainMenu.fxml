@@ -43,7 +43,37 @@
                   <HBox layoutX="10.0" layoutY="82.0">
                      <children>
                         <Region HBox.hgrow="ALWAYS" />
-                        <Button fx:id="reserveButton2" disable="true" mnemonicParsing="false" onAction="#displaySeatMap" text="Display Seating" />
+                        <Button fx:id="flightSeatButton" disable="true" mnemonicParsing="false" onAction="#displaySeatMap" text="Display Seating" />
+                        <Region HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+                  <HBox>
+                     <children>
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Button fx:id="flightPassengerButton" disable="true" mnemonicParsing="false" onAction="#displayPassengers" text="Display passengers" />
+                        <Region HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox fx:id="segment3" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+               <children>
+                  <Label text="Display Information" textAlignment="CENTER">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <HBox>
+                     <children>
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Button fx:id="displayAllFlights" mnemonicParsing="false" onAction="#displayAllFlights" text="All Flights" />
+                        <Region HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="30.0">
+                     <children>
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Button fx:id="allPassengers" mnemonicParsing="false" onAction="#displayAllPassengers" text="All Passengers" />
                         <Region HBox.hgrow="ALWAYS" />
                      </children>
                   </HBox>
