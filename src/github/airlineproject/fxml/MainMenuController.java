@@ -41,6 +41,9 @@ public class MainMenuController implements Initializable {
     @FXML
     private Button reserveButton;
 
+    @FXML
+    private Button reserveButton2;
+
     private ArrayList<VBox> segments;
     private String selectedFlight;
 
@@ -81,6 +84,11 @@ public class MainMenuController implements Initializable {
 
     }
 
+    @FXML
+    void displaySeatMap(ActionEvent event) {
+
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         // Visual appearence for each main element
@@ -114,8 +122,10 @@ public class MainMenuController implements Initializable {
                 // Disable the button if None is selected
                 if ("None".equals(flightChoice.getItems().get(newValue.intValue()))) {
                     reserveButton.setDisable(true);
+                    reserveButton2.setDisable(true);
                 } else {
                     reserveButton.setDisable(false);
+                    reserveButton2.setDisable(false);
                 }
             }
         });
