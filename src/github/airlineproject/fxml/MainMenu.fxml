@@ -9,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="338.0" prefWidth="275.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="github.airlineproject.fxml.MainMenuController">
+<AnchorPane id="AnchorPane" prefHeight="475.0" prefWidth="275.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="github.airlineproject.fxml.MainMenuController">
    <children>
       <VBox layoutX="44.0" layoutY="58.0" spacing="20.0">
          <children>
@@ -56,7 +56,7 @@
                   </HBox>
                </children>
             </VBox>
-            <VBox fx:id="segment3" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+            <VBox fx:id="segment3" spacing="10.0">
                <children>
                   <Label text="Display Information" textAlignment="CENTER">
                      <font>
