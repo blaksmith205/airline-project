@@ -61,7 +61,7 @@ public class MainMenuController implements Initializable {
 
             selectedFlight = flightController.getFlightNumber();
         } catch (IOException ex) {
-            System.out.println("Error occured when loading AddFlight.fxml from MainMenuController\n" + ex);
+            System.err.println("Error occured when loading AddFlight.fxml from MainMenuController\n" + ex);
         }
 
         // Add the created Flight to the ChoiceBox
