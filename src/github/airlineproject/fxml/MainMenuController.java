@@ -106,6 +106,10 @@ public class MainMenuController implements Initializable {
     }
 
     @FXML
+    /**
+     * Action handler for display all passenger button.
+     * Loads a table with all passengers from reservations.txt
+     */
     public void displayAllPassengers(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(Main.FXML_LOCATION + "PassengerViewer.fxml"));
