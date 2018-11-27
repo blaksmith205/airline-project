@@ -32,7 +32,7 @@ public class FileIOTest {
         System.out.println("Successfully wrote to reservations.txt");
 
         ArrayList<String> flightLines = new ArrayList<>();
-        for (int i = 0; i < 11; i++) {
+        for (int i = 1; i < 11; i++) {
             flightLines.add(i + "\t" + FileIO.SEAT_MAP_ROW);
         }
         FileIO.fileWriter("AA1230.txt", flightLines.toArray(new String[flightLines.size()]));
