@@ -19,7 +19,7 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource(FXML_LOCATION + "MainMenu.fxml"));
         
         Scene scene = new Scene(root);
-        stage.setTitle("Airline Project");
+        stage.setTitle("Pheonix Flight");
         stage.setScene(scene);
         stage.show();
     }

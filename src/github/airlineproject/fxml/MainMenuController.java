@@ -36,16 +36,25 @@ public class MainMenuController implements Initializable {
     private VBox segment2;
 
     @FXML
+    private VBox segment3;
+    
+    @FXML
     private ChoiceBox<String> flightChoice;
 
     @FXML
     private Button reserveButton;
 
+    @FXML
+    private Button flightSeatButton;
+
+    @FXML
+    private Button flightPassengerButton;
+    
     private ArrayList<VBox> segments;
     private String selectedFlight;
 
     @FXML
-    void createFlight(ActionEvent event) {
+    public void createFlight(ActionEvent event) {
         // Open a new window for the flight creation
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(Main.FXML_LOCATION + "AddFlight.fxml"));
@@ -61,7 +70,7 @@ public class MainMenuController implements Initializable {
 
             selectedFlight = flightController.getFlightNumber();
         } catch (IOException ex) {
-            System.out.println("Error occured when loading AddFlight.fxml from MainMenuController\n" + ex);
+            System.err.println("Error occured when loading AddFlight.fxml from MainMenuController\n" + ex);
         }
 
         // Add the created Flight to the ChoiceBox
@@ -77,15 +86,35 @@ public class MainMenuController implements Initializable {
     }
 
     @FXML
-    void makeReservation(ActionEvent event) {
+    public void makeReservation(ActionEvent event) {
 
     }
 
+    @FXML
+    public void displaySeatMap(ActionEvent event) {
+
+    }
+
+    @FXML
+    public void displayPassengers(ActionEvent event) {
+
+    }
+    
+    @FXML
+    public void displayAllFlights(ActionEvent event) {
+
+    }
+    
+    @FXML
+    public void displayAllPassengers(ActionEvent event) {
+
+    }
+    
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         // Visual appearence for each main element
         segments = new ArrayList<>();
-        segments.addAll(Arrays.asList(segment1, segment2)); // Add all segments to the array for easy manipulation
+        segments.addAll(Arrays.asList(segment1, segment2, segment3)); // Add all segments to the array for easy manipulation
         segments.forEach((box) -> {
             box.setStyle("-fx-border-color: black");    // Add black border around each segment
             box.setPadding(new Insets(5));              // Set a padding of 5 pixels all around the boxes
@@ -114,8 +143,12 @@ public class MainMenuController implements Initializable {
                 // Disable the button if None is selected
                 if ("None".equals(flightChoice.getItems().get(newValue.intValue()))) {
                     reserveButton.setDisable(true);
+                    flightSeatButton.setDisable(true);
+                    flightPassengerButton.setDisable(true);
                 } else {
                     reserveButton.setDisable(false);
+                    flightSeatButton.setDisable(false);
+                    flightPassengerButton.setDisable(false);
                 }
             }
         });

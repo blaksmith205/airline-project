@@ -24,6 +24,7 @@ public class Flight {
 
     /**
      * Argument Constructor to create a user defined Flight object
+     *
      * @param flightCode
      * @param number
      * @param date
@@ -31,12 +32,12 @@ public class Flight {
      * @param arrivalTime
      * @param departCity
      * @param destCity
-     * @param availableSeats 
+     * @param availableSeats
      */
-    public Flight(String flightCode, String number, String date, String depTime, 
+    public Flight(String flightCode, String number, String date, String depTime,
             String arrivalTime, String departCity, String destCity, int availableSeats) {
         this.flightCode = flightCode;
-        this.number = number;
+        this.number = getFormattedNumber(number);
         this.date = date;
         this.depTime = depTime;
         this.arrivalTime = arrivalTime;
@@ -79,7 +80,6 @@ public class Flight {
     }
 
     // Setters with formatting.
-
     public void setDate(String date) {
         this.date = date;
     }
@@ -103,6 +103,25 @@ public class Flight {
     public void setAvailableSeats(int availableSeats) {
         this.availableSeats = availableSeats;
     }
-    
+
     // Other methods
+    // Private methods to assist in formatting
+    
+    /**
+     * Appends 0 to the beginning of the entered String representation of a number
+     * @param number
+     * @return The formatted String
+     */
+    private String getFormattedNumber(String number) {
+        switch (number.length()) {
+            case 1:
+                number = "0".concat(number);
+            case 2:
+                number = "0".concat(number);
+            case 3:
+                number = "0".concat(number);
+                break;
+        }
+        return number;
+    }
 }
