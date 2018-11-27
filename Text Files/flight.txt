@@ -1,0 +1,2 @@
+Flight#   	FlightDate	DepartTime	ArriveTime	DepartCity	DestCity  	AvailableSeats
+AA1150		20/12/2015	23:00		02:00		FORT_WAYNE	ORLANDO		70
