@@ -1,6 +1,7 @@
 package github.airlineproject.fxml;
 
 import github.airlineproject.main.Main;
+import github.airlineproject.util.DataFormatter;
 import github.airlineproject.util.FileIO;
 import java.io.IOException;
 import java.net.URL;
@@ -18,6 +19,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
@@ -34,7 +36,7 @@ public class MainMenuController implements Initializable {
 
     @FXML
     private VBox segment3;
-    
+
     @FXML
     private ChoiceBox<String> flightChoice;
 
@@ -46,7 +48,7 @@ public class MainMenuController implements Initializable {
 
     @FXML
     private Button flightPassengerButton;
-    
+
     private ArrayList<VBox> segments;
     private String selectedFlight;
 
@@ -58,6 +60,7 @@ public class MainMenuController implements Initializable {
             Parent root = loader.load();
             AddFlightController flightController = loader.getController();  // Get the controller to pass the Flight Number back
             Stage window = new Stage();
+            window.initModality(Modality.APPLICATION_MODAL);    // Prevent other windows from being accessed
             window.setTitle("Add Flight");
 
             // Show the scene like the MainMenu
@@ -96,17 +99,33 @@ public class MainMenuController implements Initializable {
     public void displayPassengers(ActionEvent event) {
 
     }
-    
+
     @FXML
     public void displayAllFlights(ActionEvent event) {
 
     }
-    
+
     @FXML
     public void displayAllPassengers(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(Main.FXML_LOCATION + "PassengerViewer.fxml"));
+            Parent root = loader.load();
+            PassengerViewerController pvControl = loader.getController();  // Get the controller to set table information
+            Stage window = new Stage();
+            window.initModality(Modality.APPLICATION_MODAL);    // Prevent other windows from being accessed
+            window.setTitle("Passenger Viewer");
+            pvControl.setTable(DataFormatter.getPassengers(), "All Passengers");    // Set the table information
+            
+            // Show the scene like the MainMenu
+            Scene scene = new Scene(root);
+            window.setScene(scene);
+            window.showAndWait();   // Wait for the created window to be closed
 
+        } catch (Exception ex) {
+            System.err.println("Error occured when loading PassengerViewer.fxml from MainMenuController\n" + ex);
+        }
     }
-    
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         // Visual appearence for each main element
