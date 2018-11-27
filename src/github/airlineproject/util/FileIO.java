@@ -17,6 +17,9 @@ public class FileIO {
     public static final String FLIGHT_HEADER = String.format("%-10s\t%-10s\t%-10s\t%-10s\t%-10s\t%-10s\t%-20s\n",
             "Flight#", "FlightDate", "DepartTime", "ArriveTime", "DepartCity", "DestCity", "AvailableSeats");
 
+    public static final String RESERVATION_HEADER = String.format("%-10s\t%-15s\t-10%s\t-7%s",
+            "ID", "Name", "SeatNumber", "Flight#");
+    
     public static final String SEAT_MAP_ROW = String.format("%s %s\t%s %s %s\t%s %s",
             "A", "B", "C", "D", "E", "F", "G");
 
