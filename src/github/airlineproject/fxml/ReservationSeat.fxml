@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="776.0" prefWidth="864.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="github.airlineproject.fxml.ReservationSeatController">
+   <children>
+      <VBox layoutX="27.0" layoutY="110.0" prefHeight="562.0" prefWidth="70.0" spacing="20.0">
+         <children>
+            <Label layoutX="57.0" layoutY="92.0" text="1">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label text="2">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label text="3">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label text="4">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label text="5">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label text="6">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label text="7">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label text="8">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label text="9">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label text="10">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <HBox layoutX="117.0" layoutY="57.0" prefHeight="38.0" prefWidth="710.0" spacing="20.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="149.0" layoutY="49.0" prefWidth="50.0" text="A">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefWidth="50.0" text="B">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="38.0" prefWidth="80.0">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefWidth="50.0" text="C">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefWidth="50.0" text="D">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefWidth="50.0" text="E">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="38.0" prefWidth="80.0">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefWidth="50.0" text="F">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefWidth="50.0" text="G" textAlignment="CENTER">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox fx:id="Seatsbox" layoutX="115.0" layoutY="110.0" spacing="20.0">
+         <children>
+            <VBox prefHeight="535.0" prefWidth="50.0" spacing="25.0">
+               <children>
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="Toggle1" />
+                     </toggleGroup>
+                  </ToggleButton>
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+               </children>
+            </VBox>
+            <VBox prefHeight="535.0" prefWidth="50.0" spacing="25.0">
+               <children>
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+               </children>
+            </VBox>
+            <VBox prefHeight="535.0" prefWidth="80.0" />
+            <VBox prefHeight="535.0" prefWidth="50.0" spacing="25.0">
+               <children>
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+               </children>
+            </VBox>
+            <VBox prefHeight="535.0" prefWidth="50.0" spacing="25.0">
+               <children>
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+               </children>
+            </VBox>
+            <VBox prefHeight="535.0" prefWidth="50.0" spacing="25.0">
+               <children>
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+               </children>
+            </VBox>
+            <VBox prefHeight="535.0" prefWidth="80.0" />
+            <VBox prefHeight="535.0" prefWidth="50.0" spacing="25.0">
+               <children>
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+               </children>
+            </VBox>
+            <VBox prefHeight="535.0" prefWidth="50.0" spacing="25.0">
+               <children>
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <Button fx:id="Continuebutton" layoutX="418.0" layoutY="703.0" mnemonicParsing="false" text="Continue" />
+      <Button fx:id="CancelButton" cancelButton="true" layoutX="337.0" layoutY="703.0" mnemonicParsing="false" text="Cancel" />
+   </children>
+</AnchorPane>
