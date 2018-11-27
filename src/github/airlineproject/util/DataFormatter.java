@@ -46,7 +46,6 @@ public class DataFormatter {
             for (int row = 0; row < lines.size(); row++) {
                 String line = lines.get(row).replaceAll(" ", "").replaceAll("\t", ""); // Replace all spaces and tabs with nothing
                 line = line.replaceAll("[0-9]", "");   // replace all digits with empty string
-                System.out.println(line);
                 seats[row] = line.toCharArray();
             }
         }
