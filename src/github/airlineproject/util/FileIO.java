@@ -17,10 +17,10 @@ public class FileIO {
     public static final String FLIGHT_HEADER = String.format("%-10s\t%-10s\t%-10s\t%-10s\t%-10s\t%-10s\t%-20s\n",
             "Flight#", "FlightDate", "DepartTime", "ArriveTime", "DepartCity", "DestCity", "AvailableSeats");
 
-    public static final String RESERVATION_HEADER = String.format("%-10s\t%-15s\t-10%s\t-7%s",
+    public static final String RESERVATION_HEADER = String.format("%-10s\t%-15s\t%-10s\t%-7s\n",
             "ID", "Name", "SeatNumber", "Flight#");
     
-    public static final String SEAT_MAP_ROW = String.format("%s %s\t%s %s %s\t%s %s",
+    public static final String SEAT_MAP_ROW = String.format("%s %s\t%s %s %s\t%s %s\n",
             "A", "B", "C", "D", "E", "F", "G");
 
     /**
