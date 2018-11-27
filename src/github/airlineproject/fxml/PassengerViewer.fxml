@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="880.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="github.airlineproject.fxml.PassengerViewerController">
+   <children>
+      <TableView fx:id="passengerTable" layoutX="3.0" layoutY="32.0" prefHeight="800.0" prefWidth="800.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="60.0">
+        <columns>
+          <TableColumn fx:id="IDColumn" prefWidth="75.0" text="ID" />
+          <TableColumn fx:id="nameColumn" prefWidth="75.0" text="Full Name" />
+            <TableColumn fx:id="seatColumn" prefWidth="75.0" text="Seat" />
+            <TableColumn fx:id="flightColumn" prefWidth="75.0" text="Flight" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <HBox layoutX="358.0" layoutY="14.0" prefHeight="60.0" prefWidth="800.0" AnchorPane.bottomAnchor="820.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Region HBox.hgrow="ALWAYS" />
+            <VBox>
+               <children>
+                  <Region VBox.vgrow="ALWAYS" />
+                  <Label fx:id="topLabel" layoutX="358.0" layoutY="14.0" text="Passengers" AnchorPane.topAnchor="14.0">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <Region HBox.hgrow="ALWAYS" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
