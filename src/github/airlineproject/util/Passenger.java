@@ -106,6 +106,6 @@ public class Passenger {
      * @return Formatted string separated with tabs for easy splitting
      */
     public String toFileString() {
-        return String.format("%s\t%s %s\t%s\t%s\n", ID, firstName, lastName, seatNum, flightNum);
+        return String.format("%-10s\t%-15s\t%-10s\t%-7s\n", ID, getFullName(), seatNum, flightNum);
     }
 }
