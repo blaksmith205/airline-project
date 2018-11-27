@@ -37,7 +37,7 @@ public class Passenger {
         this.ID = ID;
         this.firstName = firstName;
         this.lastName = lastName;
-        setSeatNum(seatNum);
+        setSeatNum(seatNumber);
         flightNum = flightNumber;
     }
 
