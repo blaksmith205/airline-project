@@ -14,6 +14,22 @@ import javafx.stage.Stage;
  * @author William Blanc
  */
 public class AddFlightController implements Initializable {
+    
+    
+    @FXML
+    private TextField fromDate;
+
+    @FXML
+    private TextField arriveTime;
+
+    @FXML
+    private TextField fromBox;
+
+    @FXML
+    private TextField departTime;
+
+    @FXML
+    private TextField toBox;
 
     @FXML
     private TextField numberField;

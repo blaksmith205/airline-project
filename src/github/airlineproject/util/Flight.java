@@ -1,7 +1,7 @@
 package github.airlineproject.util;
 
 /**
- * @author William
+ * @author Chente
  *
  */
 public class Flight {
