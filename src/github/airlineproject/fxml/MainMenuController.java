@@ -18,6 +18,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
@@ -84,6 +85,23 @@ public class MainMenuController implements Initializable {
 
     @FXML
     public void makeReservation(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(Main.FXML_LOCATION + "ReservationSeat.fxml"));
+            Parent root = loader.load();
+            ReservationSeatController reserveseat = loader.getController();  // Get the controller to pass the selected seat back
+            Stage window = new Stage();
+            window.initModality(Modality.APPLICATION_MODAL);
+            window.setTitle("Reservation");
+
+            // Show the scene like the MainMenu
+            Scene scene = new Scene(root);
+            window.setScene(scene);
+            window.showAndWait();   // Wait for the created window to be closed
+
+            
+        } catch (IOException ex) {
+            System.err.println("Error occured when loading Reservation Window\n" + ex);
+        }
 
     }
 
