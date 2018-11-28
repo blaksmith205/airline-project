@@ -17,7 +17,7 @@ public class DataFormatter {
      */
     public static ArrayList<Passenger> getPassengers() {
         // If reservations.txt exists
-        if (FileIO.exists("reservations.txt")) {
+        if (FileIO.exists(FileIO.FILE_DIR,"reservations.txt")) {
             ArrayList<String> lines = FileIO.fileReader(FileIO.FILE_DIR,"reservations.txt");    // Obtain every line
             ArrayList<Passenger> passengers = new ArrayList<>();    // Create ArrayList for passengers
             lines.remove(0);    // Remove header
@@ -42,7 +42,7 @@ public class DataFormatter {
         char[][] seats = new char[10][7];
         
         // If file exists
-        if (FileIO.exists(flightFile)) {
+        if (FileIO.exists(dir, flightFile)) {
             ArrayList<String> lines = FileIO.fileReader(dir, flightFile);
             for (int row = 0; row < lines.size(); row++) {
                 String line = lines.get(row).replaceAll(" ", "").replaceAll("\t", ""); // Replace all spaces and tabs with nothing

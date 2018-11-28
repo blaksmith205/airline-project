@@ -90,7 +90,7 @@ public class FileIO {
      * @param fileName: Name of the file to check
      * @return true if the file exists
      */
-    public static boolean exists(String fileName) {
-        return Paths.get(fileName).toFile().exists();
+    public static boolean exists(String dir, String fileName) {
+        return Paths.get(dir+fileName).toFile().exists();
     }
 }

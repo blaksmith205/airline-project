@@ -158,7 +158,7 @@ public class MainMenuController implements Initializable {
         });
 
         // Create flights.txt if it does not exist
-        if (!FileIO.exists("flight.txt")) {
+        if (!FileIO.exists(FileIO.FILE_DIR,"flight.txt")) {
             FileIO.fileWriter(FileIO.FILE_DIR,"flight.txt", FileIO.FLIGHT_HEADER);
         }
 
