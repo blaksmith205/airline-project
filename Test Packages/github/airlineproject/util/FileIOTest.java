@@ -27,7 +27,7 @@ public class FileIOTest {
         Passenger test2 = new Passenger("E8742784", "Tom", "Ed", "1c", "AA1140");
         String[] lines = {FileIO.RESERVATION_HEADER, test.toFileString(),
             test2.toFileString()};
-        FileIO.fileWriter("reservations.txt", lines);
+        FileIO.fileWriter(FileIO.FILE_DIR, "reservations.txt", lines);
 
         System.out.println("Successfully wrote to reservations.txt");
 
@@ -35,7 +35,7 @@ public class FileIOTest {
         for (int i = 1; i < 11; i++) {
             flightLines.add(i + "\t" + FileIO.SEAT_MAP_ROW);
         }
-        FileIO.fileWriter("AA1230.txt", flightLines.toArray(new String[flightLines.size()]));
+        FileIO.fileWriter(FileIO.FLIGHT_DIR, "AA1230.txt", flightLines.toArray(new String[0]));
         System.out.println("Successfully created AA1230 seat map");
     }
 
@@ -51,7 +51,7 @@ public class FileIOTest {
      */
     @Test
     public void testFileReader() {
-        ArrayList<String> lines = FileIO.fileReader("reservations.txt");
+        ArrayList<String> lines = FileIO.fileReader(FileIO.FILE_DIR, "reservations.txt");
         ArrayList<Passenger> passengers = new ArrayList<>();
         lines.remove(0);    // Remove header
         for (String line : lines) {
@@ -59,8 +59,8 @@ public class FileIOTest {
             passengers.add(new Passenger(passengerInfo[0].trim(), passengerInfo[1].trim(),
                     passengerInfo[2].trim(), passengerInfo[3].trim()));
         }
-        
-        for(Passenger p: passengers){
+
+        for (Passenger p : passengers) {
             System.out.println(p);
         }
     }
