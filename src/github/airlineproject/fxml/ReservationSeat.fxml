@@ -7,8 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="776.0" prefWidth="864.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="github.airlineproject.fxml.ReservationSeatController">
+<AnchorPane id="AnchorPane" prefHeight="776.0" prefWidth="864.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="github.airlineproject.fxml.ReservationSeatController">
    <children>
       <VBox layoutX="27.0" layoutY="110.0" prefHeight="562.0" prefWidth="70.0" spacing="20.0">
          <children>
@@ -221,7 +220,16 @@
             </VBox>
          </children>
       </HBox>
-      <Button fx:id="Continuebutton" layoutX="418.0" layoutY="703.0" mnemonicParsing="false" text="Continue" />
-      <Button fx:id="CancelButton" cancelButton="true" layoutX="337.0" layoutY="703.0" mnemonicParsing="false" text="Cancel" />
+      <HBox layoutX="115.0" layoutY="698.0" prefHeight="31.0" prefWidth="670.0" spacing="25.0">
+         <children>
+            <TextField fx:id="namebox" promptText="Enter Name" />
+            <TextField fx:id="IDbox" promptText="Enter ID" />
+            <Region prefHeight="31.0" prefWidth="52.0" HBox.hgrow="ALWAYS" />
+            <Button fx:id="CancelButton" cancelButton="true" mnemonicParsing="false" text="Cancel" />
+            <Button fx:id="Continuebutton" mnemonicParsing="false" text="Continue" />
+         </children>
+      </HBox>
+      <Label layoutX="117.0" layoutY="672.0" text="Full Name" />
+      <Label layoutX="328.0" layoutY="672.0" text="ID" />
    </children>
 </AnchorPane>

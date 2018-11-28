@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.HBox;
 
@@ -22,6 +23,14 @@ public class ReservationSeatController implements Initializable {
 
     @FXML
     private Button Continuebutton;
+    
+    
+    @FXML
+    private TextField namebox;
+
+    @FXML
+    private TextField IDbox;
+
 
     @FXML
     private Button CancelButton;
