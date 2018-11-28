@@ -142,11 +142,11 @@ public class MainMenuController implements Initializable {
 
         // Create flights.txt if it does not exist
         if (!FileIO.exists("flight.txt")) {
-            FileIO.fileWriter("flight.txt", FileIO.FLIGHT_HEADER);
+            FileIO.fileWriter(FileIO.FILE_DIR,"flight.txt", FileIO.FLIGHT_HEADER);
         }
 
         // Add flight options to choice box from the file
-        ArrayList<String> fileLines = FileIO.fileReader("flight.txt");
+        ArrayList<String> fileLines = FileIO.fileReader(FileIO.FILE_DIR,"flight.txt");
         ArrayList<String> flightNumbers = new ArrayList<>();
         fileLines.remove(0);    // Remove header from the file
         for (String line : fileLines) {

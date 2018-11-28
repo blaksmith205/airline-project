@@ -18,7 +18,7 @@ public class DataFormatter {
     public static ArrayList<Passenger> getPassengers() {
         // If reservations.txt exists
         if (FileIO.exists("reservations.txt")) {
-            ArrayList<String> lines = FileIO.fileReader("reservations.txt");    // Obtain every line
+            ArrayList<String> lines = FileIO.fileReader(FileIO.FILE_DIR,"reservations.txt");    // Obtain every line
             ArrayList<Passenger> passengers = new ArrayList<>();    // Create ArrayList for passengers
             lines.remove(0);    // Remove header
             for (String line : lines) {
@@ -34,15 +34,16 @@ public class DataFormatter {
 
     /**
      * Gets the Seat map as a a char array from the desired flight text file.
+     * @param dir: Directory of the file to obtain the seat map
      * @param flightFile: The name of the flight to obtain with the .txt format
      * @return Char array of the seat map
      */
-    public static char[][] getSeatMapArray(String flightFile) {
+    public static char[][] getSeatMapArray(String dir, String flightFile) {
         char[][] seats = new char[10][7];
         
         // If file exists
         if (FileIO.exists(flightFile)) {
-            ArrayList<String> lines = FileIO.fileReader(flightFile);
+            ArrayList<String> lines = FileIO.fileReader(dir, flightFile);
             for (int row = 0; row < lines.size(); row++) {
                 String line = lines.get(row).replaceAll(" ", "").replaceAll("\t", ""); // Replace all spaces and tabs with nothing
                 line = line.replaceAll("[0-9]", "");   // replace all digits with empty string
@@ -51,5 +52,15 @@ public class DataFormatter {
         }
 
         return seats;
+    }
+    
+    /**
+     * Convenience method for obtaining the flight seat map, with directory of
+     * FileIO.FLIGHT_DIR
+     * @param flightFileThe: name of the flight to obtain with the .txt format
+     * @return Char array of the seat map
+     */
+    public static char[][] getSeatMapArray(String flightFile){
+        return getSeatMapArray(FileIO.FLIGHT_DIR, flightFile);
     }
 }
