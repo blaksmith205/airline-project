@@ -32,8 +32,8 @@ public final class Flight {
      * Default Constructor for a Flight object. Mostly used for testing purposes
      */
     public Flight() {
-        this("TS", "1234", "01/02/2018", "02:45", "05:45", "Orlando", "Miami", 70,
-                new char[SEAT_MAP_ROW][SEAT_MAP_COL]);
+        this("TS1234", "01/02/2018", "02:45", "05:45", "Orlando", "Miami", 70);
+        this.setSeatMap();
     }
 
     /**
@@ -56,6 +56,24 @@ public final class Flight {
                 arrivalTime, departCity, destCity, availableSeats, seatMap);
     }
 
+    /**
+     * Convenience constructor for a flight object with the flight code and
+     * flight number in the same string, and no inital seatMap
+     * @param flightNumber
+     * @param date
+     * @param departureTime
+     * @param arrivalTime
+     * @param departCity
+     * @param destCity
+     * @param availableSeats 
+     */
+    public Flight(String flightNumber, String date, String departureTime, 
+            String arrivalTime, String departCity, String destCity, int availableSeats) {
+        this(flightNumber, date, destCity, arrivalTime, departCity, destCity, availableSeats, new char[SEAT_MAP_ROW][SEAT_MAP_COL]);
+        this.setSeatMap();
+    }
+
+    
     /**
      * Argument Constructor to create a user defined Flight object
      *
@@ -161,6 +179,18 @@ public final class Flight {
         this.seatMap = seatMap;
     }
 
+    /**
+     * Convenience method for setting a new seatMap;
+     */
+    public void setSeatMap(){
+        seatMap = new char[SEAT_MAP_ROW][SEAT_MAP_COL];
+        
+        for (int i = 0; i < seatMap.length; i++) {
+            for (int j = 0; j < seatMap[i].length; j++) {
+                seatMap[i][j] = getChar(j);
+            }
+        }
+    }
     /**
      * Updates the desired seat map location
      * @param row: row of the seat
@@ -270,5 +300,31 @@ public final class Flight {
             mapString += "\n";
         }
         return mapString;
+    }
+    
+    /**
+     * Maps numbers to chars
+     * @param num
+     * @return 
+     */
+    private char getChar(int num){
+        switch (num){
+            case 0:
+                return 'A';
+            case 1:
+                return 'B';
+            case 2:
+                return 'C';
+            case 3:
+                return 'D';
+            case 4:
+                return 'E';
+            case 5:
+                return 'F';
+            case 6:
+                return 'G';
+            default:
+                return 'X';
+        }
     }
 }
