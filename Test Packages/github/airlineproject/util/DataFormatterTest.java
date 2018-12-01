@@ -55,4 +55,11 @@ public class DataFormatterTest {
         }
     }
     
+    @Test
+    public void testGetFlights(){
+        ArrayList<Flight> testFlights = DataFormatter.getFlights();
+        for(Flight f: testFlights){
+            System.out.println(f);
+        }
+    }
 }

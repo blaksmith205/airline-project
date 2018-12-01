@@ -24,7 +24,7 @@ public class FileIOTest {
     @Test
     public void testFileWriter() {
         Passenger test = new Passenger("1035093287", "George", "Eric", "2a", "AA1230");
-        Passenger test2 = new Passenger("E8742784", "Tom", "Ed", "1c", "AA1140");
+        Passenger test2 = new Passenger("E8742784", "Tom", "Ed", "1c", "AA1150");
         String[] lines = {FileIO.RESERVATION_HEADER, test.toFileString(),
             test2.toFileString()};
         FileIO.fileWriter(FileIO.FILE_DIR, "reservations.txt", lines);
