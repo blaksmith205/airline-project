@@ -120,6 +120,23 @@ public class MainMenuController implements Initializable {
 
     @FXML
     public void displayAllFlights(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(Main.FXML_LOCATION + "AllFlights.fxml"));
+            Parent root = loader.load();
+            AllFlightsController afControl = loader.getController();  // Get the controller to set table information
+            Stage window = new Stage();
+            window.initModality(Modality.APPLICATION_MODAL);    // Prevent other windows from being accessed
+            window.setTitle("Flight Viewer");
+            afControl.setTable(flights);    // Set the table information
+            
+            // Show the scene like the MainMenu
+            Scene scene = new Scene(root);
+            window.setScene(scene);
+            window.showAndWait();   // Wait for the created window to be closed
+
+        } catch (Exception ex) {
+            System.err.println("Error occured when loading AllFlights.fxml from MainMenuController\n" + ex);
+        }
 
     }
 
@@ -136,7 +153,7 @@ public class MainMenuController implements Initializable {
             Stage window = new Stage();
             window.initModality(Modality.APPLICATION_MODAL);    // Prevent other windows from being accessed
             window.setTitle("Passenger Viewer");
-            pvControl.setTable(DataFormatter.getPassengers(), "All Passengers");    // Set the table information
+            pvControl.setTable(passengers, "All Passengers");    // Set the table information
             
             // Show the scene like the MainMenu
             Scene scene = new Scene(root);
