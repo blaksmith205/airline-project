@@ -17,7 +17,7 @@ public final class Flight {
      * Number of columns in a seat map;
      */
     public static final int SEAT_MAP_COL = 7;
-    
+
     private final String flightCode;    // 2 unique characters to describe the host airline. Example: AA for American Airlines
     private final String number;        // 4-digit flight number
     private String date;                // date of the departing flight. Formatted as ddMonyy
@@ -27,6 +27,7 @@ public final class Flight {
     private String destCity;            // The city the flight is destined for. Formatted as uppercase
     private int availableSeats;         // The total number of available seats
     private char[][] seatMap;        // Seat map of the flight
+
     /**
      * Default Constructor for a Flight object. Mostly used for testing purposes
      */
@@ -36,7 +37,9 @@ public final class Flight {
     }
 
     /**
-     * Convenience constructor for a flight object with the flight code and flight number in the same string
+     * Convenience constructor for a flight object with the flight code and
+     * flight number in the same string
+     *
      * @param flightNumber
      * @param date
      * @param depTime
@@ -44,16 +47,15 @@ public final class Flight {
      * @param departCity
      * @param destCity
      * @param availableSeats
-     * @param seatMap 
+     * @param seatMap
      */
-    public Flight(String flightNumber, String date, String depTime, String arrivalTime, 
+    public Flight(String flightNumber, String date, String depTime, String arrivalTime,
             String departCity, String destCity, int availableSeats, char[][] seatMap) {
-        
-        this(flightNumber.substring(0, 2), flightNumber.substring(2), date, depTime, 
+
+        this(flightNumber.substring(0, 2), flightNumber.substring(2), date, depTime,
                 arrivalTime, departCity, destCity, availableSeats, seatMap);
     }
 
-    
     /**
      * Argument Constructor to create a user defined Flight object
      *
@@ -76,12 +78,12 @@ public final class Flight {
         this.arrivalTime = arrivalTime;
         setDepartCity(departCity); // Set the departing city in proper format
         setDestCity(destCity);  // Set the dest city in proper format
-        
+
         if (availableSeats < 0) {
             throw new IllegalArgumentException("Available seats can't be negative");
         }
         this.availableSeats = availableSeats;
-        
+
         if (!checkSeatMapSize(seatMap)) {
             throw new IllegalArgumentException(String.format("Seat map needs to be of type char[%d][%d]",
                     SEAT_MAP_ROW, SEAT_MAP_COL));
@@ -98,10 +100,10 @@ public final class Flight {
         return number;
     }
 
-    public String getFlight(){ // Full flight number
+    public String getFlight() { // Full flight number
         return flightCode + number;
     }
-    
+
     public String getDate() {
         return date;
     }
@@ -159,13 +161,30 @@ public final class Flight {
         this.seatMap = seatMap;
     }
 
-    public void updateSeatMap(int row, int col, char character){
-        seatMap[row][col] = character;
+    /**
+     * Updates the desired seat map location
+     * @param row: row of the seat
+     * @param col: col of the seat
+     * @param character: new character to set
+     */
+    public void updateSeatMap(int row, int col, char character) {
+        if (availableSeats > 0) {
+            if (seatMap[row][col] == 'X') {
+                throw new IllegalArgumentException("This seat is already taken, please select another");
+            }
+            else{
+                seatMap[row][col] = character;
+                availableSeats -= 1;
+            }
+        } else {
+            throw new IllegalArgumentException("There are no more available seats on flight# " + getFlight());
+        }
     }
-    
+
     // String methods
     /**
      * toString method override for debugging
+     *
      * @return A formatted string of all Flight Information
      */
     @Override
@@ -178,29 +197,34 @@ public final class Flight {
 
     /**
      * Used to easily insert the flight into the flight.txt file
+     *
      * @return Formatted string separated with tabs for easy splitting
      */
-    public String toFileString(){
+    public String toFileString() {
         return String.format("%-10s\t%-10s\t%-10s\t%-10s\t%-10s\t%-10s\t%-20s\n",
                 getFlight(), date, departureTime, arrivalTime, departCity, destCity, availableSeats);
     }
-    
+
     /**
      * Obtains the rows for the seatMap
-     * @return 
+     *
+     * @return
      */
-    public String[] getSeatMapRows(){
+    public String[] getSeatMapRows() {
         ArrayList<String> rows = new ArrayList<String>();
         for (int row = 0; row < seatMap.length; row++) {
             rows.add(String.format("%c %c\t%c %c %c\t%c %c\n", seatMap[row][0], seatMap[row][1],
-                seatMap[row][2],seatMap[row][3],seatMap[row][4],seatMap[row][5],seatMap[row][6]));
+                    seatMap[row][2], seatMap[row][3], seatMap[row][4], seatMap[row][5], seatMap[row][6]));
         }
         return rows.toArray(new String[0]);
     }
+
     // Other methods
     // Private methods to assist in formatting
     /**
-     * Appends 0 to the beginning of the entered String representation of a number
+     * Appends 0 to the beginning of the entered String representation of a
+     * number
+     *
      * @param number
      * @return The formatted String
      */
@@ -216,13 +240,14 @@ public final class Flight {
         }
         return number;
     }
-    
+
     /**
      * Check if the seatmap is the right size
+     *
      * @param seatMap: The seat map to check
      * @return True if the array is char[10][7]
      */
-    private boolean checkSeatMapSize(char[][] seatMap){
+    private boolean checkSeatMapSize(char[][] seatMap) {
         if (seatMap.length == SEAT_MAP_ROW) {
             if (seatMap[0].length == SEAT_MAP_COL) {
                 return true;
@@ -230,16 +255,17 @@ public final class Flight {
         }
         return false;
     }
-    
+
     /**
      * Obtains the seat map from the array
-     * @return 
+     *
+     * @return
      */
-    private String seatMapString(){
+    private String seatMapString() {
         String mapString = "";
         for (int row = 0; row < seatMap.length; row++) {
             for (int col = 0; col < seatMap[row].length; col++) {
-                mapString += String.format("%c ",seatMap[row][col]);
+                mapString += String.format("%c ", seatMap[row][col]);
             }
             mapString += "\n";
         }
