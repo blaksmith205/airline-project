@@ -13,7 +13,7 @@ public class DataFormatter {
     /**
      * Obtains all Passengers stored in reservations.txt
      *
-     * @return ArrayList of stored passengers.
+     * @return ArrayList of stored flights.
      */
     public static ArrayList<Passenger> getPassengers() {
         // If reservations.txt exists
@@ -33,13 +33,37 @@ public class DataFormatter {
     }
 
     /**
+     * Obtains all Flights from flights.txt
+     * @return ArrayList of stored Flights
+     */
+    public static ArrayList<Flight> getFlights(){
+        // If reservations.txt exists
+        if (FileIO.exists(FileIO.FILE_DIR,"flight.txt")) {
+            ArrayList<String> lines = FileIO.fileReader(FileIO.FILE_DIR,"flight.txt");    // Obtain every line
+            ArrayList<Flight> flights = new ArrayList<>();    // Create ArrayList for flights
+            lines.remove(0);    // Remove header
+            for (String line : lines) {
+                String[] flightInfo = line.split("\t");
+                // Add the flights from the stored information
+                flights.add(new Flight(flightInfo[0].trim(), flightInfo[1].trim(),
+                        flightInfo[2].trim(), flightInfo[3].trim(), flightInfo[4].trim(),
+                        flightInfo[5].trim(), Integer.parseInt(flightInfo[6].trim()), 
+                        DataFormatter.getSeatMapArray(flightInfo[0].trim() + ".txt"))); 
+            }
+            return flights;
+        } else {
+            return new ArrayList<Flight>();
+        }
+    }
+    
+    /**
      * Gets the Seat map as a a char array from the desired flight text file.
      * @param dir: Directory of the file to obtain the seat map
      * @param flightFile: The name of the flight to obtain with the .txt format
      * @return Char array of the seat map
      */
     public static char[][] getSeatMapArray(String dir, String flightFile) {
-        char[][] seats = new char[10][7];
+        char[][] seats = new char[Flight.SEAT_MAP_ROW][Flight.SEAT_MAP_COL];
         
         // If file exists
         if (FileIO.exists(dir, flightFile)) {
