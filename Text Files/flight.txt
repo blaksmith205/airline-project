@@ -1,2 +1,3 @@
-Flight#   	FlightDate	DepartTime	ArriveTime	DepartCity	DestCity  	AvailableSeats
-AA1150		20/12/2015	23:00		02:00		FORT_WAYNE	ORLANDO		70
+Flight#   	FlightDate	DepartTime	ArriveTime	DepartCity	DestCity  	AvailableSeats      
+AA1140  	20Dec15 	23:00   	02:00   	FORT_WAYNE	ORLANDO 	70
+AA1230  	05Nov15 	11:30   	14:00   	BLACKSBURG	BOCA_RATON	25
