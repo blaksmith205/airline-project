@@ -110,6 +110,23 @@ public class MainMenuController implements Initializable {
 
     @FXML
     public void displaySeatMap(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(Main.FXML_LOCATION + "FlightSeats.fxml"));
+            Parent root = loader.load();
+            FlightSeatsController fsControl = loader.getController();  // Get the controller to set table information
+            Stage window = new Stage();
+            window.initModality(Modality.APPLICATION_MODAL);    // Prevent other windows from being accessed
+            window.setTitle("Passenger Seats");
+            //fsControl.setSeatMap(, "All Passengers");    // Set the table information
+            
+            // Show the scene like the MainMenu
+            Scene scene = new Scene(root);
+            window.setScene(scene);
+            window.showAndWait();   // Wait for the created window to be closed
+
+        } catch (Exception ex) {
+            System.err.println("Error occured when loading PassengerViewer.fxml from MainMenuController\n" + ex);
+        }
 
     }
 
@@ -236,5 +253,9 @@ public class MainMenuController implements Initializable {
         if (!FileIO.exists(FileIO.FILE_DIR,"reservations.txt")) {
             FileIO.fileWriter(FileIO.FILE_DIR,"reservations.txt", FileIO.RESERVATION_HEADER);
         }
+    }
+    
+    private Flight getFlight(String flightName){
+        return null;
     }
 }

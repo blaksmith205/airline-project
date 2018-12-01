@@ -7,9 +7,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="776.0" prefWidth="864.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="github.airlineproject.fxml.ReservationSeatController">
+<AnchorPane id="AnchorPane" prefHeight="768.0" prefWidth="798.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="github.airlineproject.fxml.FlightSeatsController">
    <children>
-      <VBox layoutX="27.0" layoutY="110.0" prefHeight="562.0" prefWidth="70.0" spacing="20.0">
+      <VBox layoutX="19.0" layoutY="163.0" prefHeight="562.0" prefWidth="70.0" spacing="20.0">
          <children>
             <Label layoutX="57.0" layoutY="92.0" text="1">
                <font>
@@ -63,7 +63,7 @@
             </Label>
          </children>
       </VBox>
-      <HBox layoutX="117.0" layoutY="57.0" prefHeight="38.0" prefWidth="710.0" spacing="20.0">
+      <HBox layoutX="89.0" layoutY="110.0" prefHeight="38.0" prefWidth="710.0" spacing="20.0">
          <children>
             <Label alignment="CENTER" contentDisplay="CENTER" layoutX="149.0" layoutY="49.0" prefWidth="50.0" text="A">
                <font>
@@ -112,124 +112,700 @@
             </Label>
          </children>
       </HBox>
-      <HBox fx:id="Seatsbox" layoutX="115.0" layoutY="110.0" spacing="20.0">
+      <VBox fx:id="filledseats" layoutX="89.0" layoutY="160.0" prefHeight="539.0" prefWidth="726.0">
          <children>
-            <VBox prefHeight="535.0" prefWidth="50.0" spacing="25.0">
+            <HBox prefHeight="38.0" prefWidth="710.0" spacing="20.0">
                <children>
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton">
-                     <toggleGroup>
-                        <ToggleGroup fx:id="Toggle1" />
-                     </toggleGroup>
-                  </ToggleButton>
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="149.0" layoutY="49.0" prefWidth="50.0" text="A">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="B">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="38.0" prefWidth="80.0">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="C">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="D">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="E">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="38.0" prefWidth="80.0">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="F">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="G" textAlignment="CENTER">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
                </children>
-            </VBox>
-            <VBox prefHeight="535.0" prefWidth="50.0" spacing="25.0">
+            </HBox>
+            <HBox prefHeight="38.0" prefWidth="710.0" spacing="20.0">
                <children>
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="149.0" layoutY="49.0" prefWidth="50.0" text="A">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="B">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="38.0" prefWidth="80.0">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="C">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="D">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="E">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="38.0" prefWidth="80.0">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="F">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="G" textAlignment="CENTER">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
                </children>
-            </VBox>
-            <VBox prefHeight="535.0" prefWidth="80.0" />
-            <VBox prefHeight="535.0" prefWidth="50.0" spacing="25.0">
+            </HBox>
+            <HBox prefHeight="38.0" prefWidth="710.0" spacing="20.0">
                <children>
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="149.0" layoutY="49.0" prefWidth="50.0" text="A">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="B">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="38.0" prefWidth="80.0">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="C">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="D">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="E">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="38.0" prefWidth="80.0">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="F">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="G" textAlignment="CENTER">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
                </children>
-            </VBox>
-            <VBox prefHeight="535.0" prefWidth="50.0" spacing="25.0">
+            </HBox>
+            <HBox prefHeight="38.0" prefWidth="710.0" spacing="20.0">
                <children>
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="149.0" layoutY="49.0" prefWidth="50.0" text="A">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="B">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="38.0" prefWidth="80.0">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="C">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="D">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="E">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="38.0" prefWidth="80.0">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="F">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="G" textAlignment="CENTER">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
                </children>
-            </VBox>
-            <VBox prefHeight="535.0" prefWidth="50.0" spacing="25.0">
+            </HBox>
+            <HBox prefHeight="38.0" prefWidth="710.0" spacing="20.0">
                <children>
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="149.0" layoutY="49.0" prefWidth="50.0" text="A">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="B">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="38.0" prefWidth="80.0">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="C">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="D">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="E">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="38.0" prefWidth="80.0">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="F">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="G" textAlignment="CENTER">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
                </children>
-            </VBox>
-            <VBox prefHeight="535.0" prefWidth="80.0" />
-            <VBox prefHeight="535.0" prefWidth="50.0" spacing="25.0">
+            </HBox>
+            <HBox prefHeight="38.0" prefWidth="710.0" spacing="20.0">
                <children>
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="149.0" layoutY="49.0" prefWidth="50.0" text="A">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="B">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="38.0" prefWidth="80.0">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="C">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="D">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="E">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="38.0" prefWidth="80.0">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="F">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="G" textAlignment="CENTER">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
                </children>
-            </VBox>
-            <VBox prefHeight="535.0" prefWidth="50.0" spacing="25.0">
+            </HBox>
+            <HBox prefHeight="38.0" prefWidth="710.0" spacing="20.0">
                <children>
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
-                  <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="149.0" layoutY="49.0" prefWidth="50.0" text="A">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="B">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="38.0" prefWidth="80.0">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="C">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="D">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="E">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="38.0" prefWidth="80.0">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="F">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="G" textAlignment="CENTER">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
                </children>
-            </VBox>
+            </HBox>
+            <HBox prefHeight="38.0" prefWidth="710.0" spacing="20.0">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="149.0" layoutY="49.0" prefWidth="50.0" text="A">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="B">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="38.0" prefWidth="80.0">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="C">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="D">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="E">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="38.0" prefWidth="80.0">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="F">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="G" textAlignment="CENTER">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="38.0" prefWidth="710.0" spacing="20.0">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="149.0" layoutY="49.0" prefWidth="50.0" text="A">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="B">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="38.0" prefWidth="80.0">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="C">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="D">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="E">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="38.0" prefWidth="80.0">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="F">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="G" textAlignment="CENTER">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="38.0" prefWidth="710.0" spacing="20.0">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="149.0" layoutY="49.0" prefWidth="50.0" text="A">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="B">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="38.0" prefWidth="80.0">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="C">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="D">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="E">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="38.0" prefWidth="80.0">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="F">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="G" textAlignment="CENTER">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="38.0" prefWidth="710.0" spacing="20.0">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="149.0" layoutY="49.0" prefWidth="50.0" text="A">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="B">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="38.0" prefWidth="80.0">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="C">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="D">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="E">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="38.0" prefWidth="80.0">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="F">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="G" textAlignment="CENTER">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="38.0" prefWidth="710.0" spacing="20.0">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="149.0" layoutY="49.0" prefWidth="50.0" text="A">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="B">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="38.0" prefWidth="80.0">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="C">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="D">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="E">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="38.0" prefWidth="80.0">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="F">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="G" textAlignment="CENTER">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="38.0" prefWidth="710.0" spacing="20.0">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="149.0" layoutY="49.0" prefWidth="50.0" text="A">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="B">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="38.0" prefWidth="80.0">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="C">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="D">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="E">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="38.0" prefWidth="80.0">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="F">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="G" textAlignment="CENTER">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="38.0" prefWidth="710.0" spacing="20.0">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="149.0" layoutY="49.0" prefWidth="50.0" text="A">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="B">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="38.0" prefWidth="80.0">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="C">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="D">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="E">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="38.0" prefWidth="80.0">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="F">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefWidth="50.0" text="G" textAlignment="CENTER">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
          </children>
-      </HBox>
-      <HBox layoutX="115.0" layoutY="698.0" prefHeight="31.0" prefWidth="670.0" spacing="25.0">
-         <children>
-            <TextField fx:id="namebox" promptText="Enter Name" />
-            <TextField fx:id="IDbox" promptText="Enter ID" />
-            <Region prefHeight="31.0" prefWidth="52.0" HBox.hgrow="ALWAYS" />
-            <Button fx:id="CancelButton" cancelButton="true" mnemonicParsing="false" text="Cancel" />
-            <Button fx:id="Continuebutton" mnemonicParsing="false" text="Continue" />
-         </children>
-      </HBox>
-      <Label layoutX="117.0" layoutY="672.0" text="Full Name" />
-      <Label layoutX="328.0" layoutY="672.0" text="ID" />
+      </VBox>
+      <Label fx:id="flightTitle" layoutX="352.0" layoutY="28.0" text="Flight">
+         <font>
+            <Font name="System Bold" size="37.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
