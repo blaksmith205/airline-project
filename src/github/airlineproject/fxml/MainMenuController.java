@@ -4,6 +4,7 @@ import github.airlineproject.main.Main;
 import github.airlineproject.util.*;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.FileAlreadyExistsException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.ResourceBundle;
@@ -55,6 +56,7 @@ public class MainMenuController implements Initializable {
 
     @FXML
     public void createFlight(ActionEvent event) {
+        Flight createdFlight = null;
         // Open a new window for the flight creation
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(Main.FXML_LOCATION + "AddFlight.fxml"));
@@ -69,16 +71,22 @@ public class MainMenuController implements Initializable {
             window.setScene(scene);
             window.showAndWait();   // Wait for the created window to be closed
 
-            selectedFlight = flightController.getFlightNumber();
+            createdFlight = flightController.getFlight();
+
+            // create the seat map file for the flight
+            DataFormatter.createFlightFile(createdFlight.getFlight());
         } catch (IOException ex) {
             System.err.println("Error occured when loading AddFlight.fxml from MainMenuController\n" + ex);
         }
 
+        // Add flight to the array
+        flights.add(createdFlight);
+
         // Add the created Flight to the ChoiceBox
-        if (selectedFlight != null) {
-            if (!flightChoice.getItems().contains(selectedFlight)) {
+        if (createdFlight != null) {
+            if (!flightChoice.getItems().contains(createdFlight.getFlight())) {
                 flightChoice.getItems().remove(0);  // Remove None from beginning of list
-                flightChoice.getItems().add(selectedFlight);    // Add the created flight number
+                flightChoice.getItems().add(createdFlight.getFlight());    // Add the created flight number
 
                 flightChoice.getItems().sort(String::compareTo);    // Use String compare function to sort the list
                 flightChoice.getItems().add(0, "None"); // Re-add None to beginning of the list
@@ -101,7 +109,6 @@ public class MainMenuController implements Initializable {
             window.setScene(scene);
             window.showAndWait();   // Wait for the created window to be closed
 
-            
         } catch (IOException ex) {
             System.err.println("Error occured when loading Reservation Window\n" + ex);
         }
@@ -128,7 +135,7 @@ public class MainMenuController implements Initializable {
             window.initModality(Modality.APPLICATION_MODAL);    // Prevent other windows from being accessed
             window.setTitle("Flight Viewer");
             afControl.setTable(flights);    // Set the table information
-            
+
             // Show the scene like the MainMenu
             Scene scene = new Scene(root);
             window.setScene(scene);
@@ -142,8 +149,8 @@ public class MainMenuController implements Initializable {
 
     @FXML
     /**
-     * Action handler for display all passenger button.
-     * Loads a table with all passengers from reservations.txt
+     * Action handler for display all passenger button. Loads a table with all
+     * passengers from reservations.txt
      */
     public void displayAllPassengers(ActionEvent event) {
         try {
@@ -154,7 +161,7 @@ public class MainMenuController implements Initializable {
             window.initModality(Modality.APPLICATION_MODAL);    // Prevent other windows from being accessed
             window.setTitle("Passenger Viewer");
             pvControl.setTable(passengers, "All Passengers");    // Set the table information
-            
+
             // Show the scene like the MainMenu
             Scene scene = new Scene(root);
             window.setScene(scene);
@@ -181,7 +188,7 @@ public class MainMenuController implements Initializable {
     /**
      * Initialize the ChoiceBox
      */
-    private void initChoiceBox(){
+    private void initChoiceBox() {
         // Add flight options to choice box from the file
         ArrayList<String> flightNumbers = new ArrayList<>();
         for (Flight flight : flights) {
@@ -208,33 +215,33 @@ public class MainMenuController implements Initializable {
             }
         });
     }
-    
-    private void initObjects(){
+
+    private void initObjects() {
         // Initialize the files
         initFiles();
-        
+
         // load flights from reservations file and store in array list
         flights = DataFormatter.getFlights();
-        
+
         // load passengers from reservations file and store in array list
         passengers = DataFormatter.getPassengers();
-        
+
         // Initialize the ChoiceBox
         initChoiceBox();
     }
-    
+
     /**
      * Create the flight and reservation text files if they do not exist
      */
-    private void initFiles(){
+    private void initFiles() {
         // Create flights.txt if it does not exist
-        if (!FileIO.exists(FileIO.FILE_DIR,"flight.txt")) {
-            FileIO.fileWriter(FileIO.FILE_DIR,"flight.txt", FileIO.FLIGHT_HEADER);
+        if (!FileIO.exists(FileIO.FILE_DIR, "flight.txt")) {
+            FileIO.fileWriter(FileIO.FILE_DIR, "flight.txt", FileIO.FLIGHT_HEADER);
         }
-        
+
         // Create reservations.txt if it does not exist
-        if (!FileIO.exists(FileIO.FILE_DIR,"reservations.txt")) {
-            FileIO.fileWriter(FileIO.FILE_DIR,"reservations.txt", FileIO.RESERVATION_HEADER);
+        if (!FileIO.exists(FileIO.FILE_DIR, "reservations.txt")) {
+            FileIO.fileWriter(FileIO.FILE_DIR, "reservations.txt", FileIO.RESERVATION_HEADER);
         }
     }
 }
