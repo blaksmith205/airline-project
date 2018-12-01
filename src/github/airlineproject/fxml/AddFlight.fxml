@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="254.0" prefWidth="856.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="github.airlineproject.fxml.AddFlightController">
+<AnchorPane prefHeight="285.0" prefWidth="856.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="github.airlineproject.fxml.AddFlightController">
    <children>
-      <Button layoutX="367.0" layoutY="209.0" mnemonicParsing="false" onAction="#createFlightAndReturn" text="Create Flight" />
-      <VBox layoutX="6.0" layoutY="1.0" prefHeight="200.0" prefWidth="850.0" spacing="15.0">
+      <Button layoutX="379.0" layoutY="246.0" mnemonicParsing="false" onAction="#createFlightAndReturn" text="Create Flight" />
+      <VBox layoutX="6.0" layoutY="1.0" prefHeight="239.0" prefWidth="850.0" spacing="15.0">
          <children>
             <HBox alignment="CENTER" prefHeight="31.0" prefWidth="661.0" spacing="150.0">
                <children>
@@ -38,6 +39,21 @@
                   <TextField fx:id="departTime" promptText="Depart Time" />
                   <TextField fx:id="arriveTime" promptText="Arrive Time" />
                </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="21.0" prefWidth="661.0" spacing="260.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="21.0" prefWidth="89.0" text="Passengers" />
+                  <Label />
+                  <Label />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="31.0" prefWidth="661.0" spacing="260.0">
+               <children>
+                  <TextField fx:id="passengerBox" promptText="Enter Passengers" />
+               </children>
+               <padding>
+                  <Insets left="95.0" />
+               </padding>
             </HBox>
          </children>
       </VBox>

@@ -31,6 +31,9 @@ public class AddFlightController implements Initializable {
     @FXML
     private TextField toBox;
 
+     @FXML
+    private TextField passengerBox;
+     
     @FXML
     private TextField numberField;
 
