@@ -1,5 +1,6 @@
 package github.airlineproject.util;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
@@ -182,6 +183,19 @@ public final class Flight {
     public String toFileString(){
         return String.format("%-10s\t%-10s\t%-10s\t%-10s\t%-10s\t%-10s\t%-20s\n",
                 getFlight(), date, departureTime, arrivalTime, departCity, destCity, availableSeats);
+    }
+    
+    /**
+     * Obtains the rows for the seatMap
+     * @return 
+     */
+    public String[] getSeatMapRows(){
+        ArrayList<String> rows = new ArrayList<String>();
+        for (int row = 0; row < seatMap.length; row++) {
+            rows.add(String.format("%c %c\t%c %c %c\t%c %c\n", seatMap[0][0], seatMap[0][1],
+                seatMap[0][2],seatMap[0][3],seatMap[0][4],seatMap[0][5],seatMap[0][6]));
+        }
+        return rows.toArray(new String[0]);
     }
     // Other methods
     // Private methods to assist in formatting
