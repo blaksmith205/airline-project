@@ -192,8 +192,8 @@ public final class Flight {
     public String[] getSeatMapRows(){
         ArrayList<String> rows = new ArrayList<String>();
         for (int row = 0; row < seatMap.length; row++) {
-            rows.add(String.format("%c %c\t%c %c %c\t%c %c\n", seatMap[0][0], seatMap[0][1],
-                seatMap[0][2],seatMap[0][3],seatMap[0][4],seatMap[0][5],seatMap[0][6]));
+            rows.add(String.format("%c %c\t%c %c %c\t%c %c\n", seatMap[row][0], seatMap[row][1],
+                seatMap[row][2],seatMap[row][3],seatMap[row][4],seatMap[row][5],seatMap[row][6]));
         }
         return rows.toArray(new String[0]);
     }

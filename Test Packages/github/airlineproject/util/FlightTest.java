@@ -5,7 +5,6 @@
  */
 package github.airlineproject.util;
 
-import java.util.ArrayList;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -28,6 +27,7 @@ public class FlightTest {
     
     @After
     public void tearDown() {
+        testFlight = null;
     }
 
 
@@ -49,4 +49,11 @@ public class FlightTest {
         System.out.println(testFlight.toFileString());
     }
     
+    @Test
+    public void testGetSeatMapRows(){
+        String[] rows = testFlight.getSeatMapRows();
+        for(String row: rows){
+            System.out.println(row);
+        }
+    }
 }
