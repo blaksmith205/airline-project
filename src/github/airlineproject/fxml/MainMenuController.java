@@ -1,8 +1,7 @@
 package github.airlineproject.fxml;
 
 import github.airlineproject.main.Main;
-import github.airlineproject.util.DataFormatter;
-import github.airlineproject.util.FileIO;
+import github.airlineproject.util.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -50,6 +49,8 @@ public class MainMenuController implements Initializable {
     private Button flightPassengerButton;
 
     private ArrayList<VBox> segments;
+    private ArrayList<Flight> flights;
+    private ArrayList<Passenger> passengers;
     private String selectedFlight;
 
     @FXML
@@ -157,17 +158,17 @@ public class MainMenuController implements Initializable {
             box.setPadding(new Insets(5));              // Set a padding of 5 pixels all around the boxes
         });
 
-        // Create flights.txt if it does not exist
-        if (!FileIO.exists(FileIO.FILE_DIR,"flight.txt")) {
-            FileIO.fileWriter(FileIO.FILE_DIR,"flight.txt", FileIO.FLIGHT_HEADER);
-        }
+        initObjects();
+    }
 
+    /**
+     * Initialize the ChoiceBox
+     */
+    private void initChoiceBox(){
         // Add flight options to choice box from the file
-        ArrayList<String> fileLines = FileIO.fileReader(FileIO.FILE_DIR,"flight.txt");
         ArrayList<String> flightNumbers = new ArrayList<>();
-        fileLines.remove(0);    // Remove header from the file
-        for (String line : fileLines) {
-            flightNumbers.add(line.substring(0, line.indexOf("\t")));   // Add only the flight numbers from each line
+        for (Flight flight : flights) {
+            flightNumbers.add(flight.getFlight());   // Add only the flight numbers from each line
         }
         flightChoice.getItems().add("None");
         flightChoice.getItems().addAll(flightNumbers);
@@ -190,5 +191,33 @@ public class MainMenuController implements Initializable {
             }
         });
     }
-
+    
+    private void initObjects(){
+        // Initialize the files
+        initFiles();
+        
+        // load flights from reservations file and store in array list
+        flights = DataFormatter.getFlights();
+        
+        // load passengers from reservations file and store in array list
+        passengers = DataFormatter.getPassengers();
+        
+        // Initialize the ChoiceBox
+        initChoiceBox();
+    }
+    
+    /**
+     * Create the flight and reservation text files if they do not exist
+     */
+    private void initFiles(){
+        // Create flights.txt if it does not exist
+        if (!FileIO.exists(FileIO.FILE_DIR,"flight.txt")) {
+            FileIO.fileWriter(FileIO.FILE_DIR,"flight.txt", FileIO.FLIGHT_HEADER);
+        }
+        
+        // Create reservations.txt if it does not exist
+        if (!FileIO.exists(FileIO.FILE_DIR,"reservations.txt")) {
+            FileIO.fileWriter(FileIO.FILE_DIR,"reservations.txt", FileIO.RESERVATION_HEADER);
+        }
+    }
 }
