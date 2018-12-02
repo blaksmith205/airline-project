@@ -561,10 +561,21 @@
             </VBox>
          </children>
       </HBox>
-      <Label fx:id="flightTitle" layoutX="297.0" layoutY="20.0" text="Flight" AnchorPane.leftAnchor="297.0" AnchorPane.rightAnchor="296.0" AnchorPane.topAnchor="20.0">
-         <font>
-            <Font name="System Bold" size="32.0" />
-         </font>
-      </Label>
+      <HBox layoutX="297.0" layoutY="20.0" prefHeight="70.0" prefWidth="680.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Region HBox.hgrow="ALWAYS" />
+            <VBox>
+               <children>
+                  <Region VBox.vgrow="ALWAYS" />
+                  <Label fx:id="flightTitle" layoutX="297.0" layoutY="20.0" text="Flight" AnchorPane.leftAnchor="297.0" AnchorPane.rightAnchor="296.0" AnchorPane.topAnchor="20.0">
+                     <font>
+                        <Font name="System Bold" size="32.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <Region HBox.hgrow="ALWAYS" />
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

@@ -145,7 +145,7 @@ public class MainMenuController implements Initializable {
             Stage window = new Stage();
             window.initModality(Modality.APPLICATION_MODAL);    // Prevent other windows from being accessed
             window.setTitle("Passenger Seats");
-            //fsControl.setSeatMap(, "All Passengers");    // Set the table information
+            fsControl.setSeatMap(getFlight(selectedFlight).getSeatMap(), "Seat Map for Flight " + selectedFlight);    // Set the table information
 
             // Show the scene like the MainMenu
             Scene scene = new Scene(root);
@@ -313,7 +313,18 @@ public class MainMenuController implements Initializable {
         }
     }
 
+    /**
+     * Obtains the Flight object based on the flight number
+     *
+     * @param flightName: Name of the flight to obtain from list
+     * @return
+     */
     private Flight getFlight(String flightName) {
+        for (Flight flight : flights) {
+            if (flightName.equalsIgnoreCase(flight.getFlight())) {
+                return flight;
+            }
+        }
         return null;
     }
 
