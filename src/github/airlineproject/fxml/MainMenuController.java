@@ -22,6 +22,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
+ * FXML Controller for MainMenu.fxml
  *
  * @author William Blanc and Chente
  */

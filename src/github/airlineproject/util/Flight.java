@@ -3,8 +3,9 @@ package github.airlineproject.util;
 import java.util.ArrayList;
 
 /**
- * @author Chente
+ * Class for all data related to an airline flight
  *
+ * @author William and Chente
  */
 public final class Flight {
 

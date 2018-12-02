@@ -13,9 +13,9 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 /**
- * FXML Controller class
+ * FXML Controller class for AddFlight.fxml
  *
- * @author Chente
+ * @author William
  */
 public class AddFlightController implements Initializable {
 

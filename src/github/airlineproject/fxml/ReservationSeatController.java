@@ -15,7 +15,7 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.HBox;
 
 /**
- * FXML Controller class
+ * FXML Controller class for ReservationSeat.fxml
  *
  * @author Chente
  */

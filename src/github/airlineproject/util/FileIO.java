@@ -10,6 +10,7 @@ import java.util.Formatter;
 import java.util.Scanner;
 
 /**
+ * Contains the operations for file input / output
  *
  * @author William Blanc <test@email.com>
  */

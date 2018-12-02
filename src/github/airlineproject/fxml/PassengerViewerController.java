@@ -11,7 +11,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 /**
- * FXML Controller class
+ * FXML Controller class for PassengerViewer.fxml
  *
  * @author William Blanc <test@email.com>
  */

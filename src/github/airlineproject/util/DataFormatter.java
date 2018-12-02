@@ -96,7 +96,6 @@ public class DataFormatter {
      * Creates a new seat map file for the flightName
      *
      * @param flightName
-     * @throws FileAlreadyExistsException
      */
     public static void createFlightFile(String flightName) {
         ArrayList<String> flightLines = new ArrayList<>();

@@ -1,8 +1,9 @@
 package github.airlineproject.util;
 
 /**
+ * Contains all information for a flight passenger
  *
- * @author
+ * @author William Blanc
  */
 public class Passenger {
 
@@ -42,16 +43,18 @@ public class Passenger {
     }
 
     /**
-     * Convenience constructor with a given full name. Splits the full name at the space
-     * and sets the value of firstName and lastName from respective elements. Full name should
-     * be formatted as "firstName lastName" to work.
+     * Convenience constructor with a given full name. Splits the full name at
+     * the space and sets the value of firstName and lastName from respective
+     * elements. Full name should be formatted as "firstName lastName" to work.
+     *
      * @param ID: The ID of the user. Can be a Driver License, Passport ID, or
      * generated ID
-     * @param fullName: Full name of the Passenger. Formatted as "firstName lastName"
+     * @param fullName: Full name of the Passenger. Formatted as "firstName
+     * lastName"
      * @param seatNumber: The reserved seat
      * @param flightNumber : The flight the reserved seat is on.
      */
-    public Passenger(String ID, String fullName, String seatNumber, String flightNumber){
+    public Passenger(String ID, String fullName, String seatNumber, String flightNumber) {
         String[] names = fullName.split(" ");
         this.ID = ID;
         this.firstName = names[0].trim();
@@ -59,7 +62,7 @@ public class Passenger {
         setSeatNum(seatNumber);
         flightNum = flightNumber;
     }
-    
+
     public String getID() {
         return ID;
     }
@@ -89,9 +92,11 @@ public class Passenger {
     }
 
     /**
-     * Sets the chosen seat. Seats should be formatted as [number][letter] and 
-     * should only be 2 characters long. IllegalArgumentException is thrown otherwise
-     * @param seatNum 
+     * Sets the chosen seat. Seats should be formatted as [number][letter] and
+     * should only be 2 characters long. IllegalArgumentException is thrown
+     * otherwise
+     *
+     * @param seatNum
      */
     public final void setSeatNum(String seatNum) {
         if (seatNum.length() > 2) {
@@ -111,6 +116,7 @@ public class Passenger {
 
     /**
      * toString method override for debugging
+     *
      * @return A formatted string of all Passenger Information
      */
     @Override
@@ -122,6 +128,7 @@ public class Passenger {
 
     /**
      * Used to easily insert the passenger into the reservations.txt file
+     *
      * @return Formatted string separated with tabs for easy splitting
      */
     public String toFileString() {

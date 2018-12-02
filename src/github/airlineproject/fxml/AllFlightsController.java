@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package github.airlineproject.fxml;
 
 import github.airlineproject.util.Flight;
@@ -17,7 +12,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 /**
- * FXML Controller class
+ * FXML Controller class for AllFlights.fxml
  *
  * @author Chente
  */
