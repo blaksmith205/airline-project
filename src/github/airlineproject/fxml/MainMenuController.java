@@ -325,12 +325,10 @@ public class MainMenuController implements Initializable {
     private ArrayList<Passenger> getFilteredPassengers(String flight) {
         ArrayList<Passenger> filteredPassengers = new ArrayList<>();
         for (Passenger p : passengers) {
-            System.out.println(p.getFlightNum());
             if (flight.equalsIgnoreCase(p.getFlightNum())) {
                 filteredPassengers.add(p);
             }
         }
-        System.out.println(filteredPassengers);
         return filteredPassengers;
     }
 }
