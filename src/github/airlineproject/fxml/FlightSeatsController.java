@@ -28,7 +28,7 @@ public class FlightSeatsController implements Initializable {
 
     }
 
-    public void setSeatMap(char[][] Seats, String seatlabel) {
+    public void setSeatMap(char[][] seats, String seatlabel) {
 
         for (int i = 0; i < filledseats.getChildren().size(); i++) {
             HBox tempbox = (HBox) filledseats.getChildren().get(i);
@@ -36,12 +36,13 @@ public class FlightSeatsController implements Initializable {
             for (int j = 0; j < tempbox.getChildren().size(); j++) {
                 Label label = (Label) tempbox.getChildren().get(j);
                 if (label.getText() == "") {
-
                     continue;
                 }
-                if (label.getText().charAt(0) != Seats[i][column]) {
+                if (label.getText().charAt(0) != seats[i][column]) {
                     column++;
                     label.setText("X");
+                } else {
+                    column++;
                 }
             }
         }
