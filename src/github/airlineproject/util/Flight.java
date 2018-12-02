@@ -212,6 +212,46 @@ public final class Flight {
         }
     }
 
+    /**
+     * Convenience method to convert a 2 character string to proper row, col location
+     * Set the character at location to X
+     * @param seatNum: The seat number. formatted as [digit][letter]
+     */
+    public void updateSeatMap(String seatNum) {
+        int row = Integer.parseInt(String.valueOf(seatNum.charAt(0)));
+        int col = -1;
+        // Map letter to col num
+        switch (seatNum.charAt(1)) {
+            case 'A':
+                col = 0;
+                break;
+            case 'B':
+                col = 1;
+                break;
+            case 'C':
+                col = 2;
+                break;
+            case 'D':
+                col = 3;
+                break;
+            case 'E':
+                col = 4;
+                break;
+            case 'F':
+                col = 5;
+                break;
+            case 'G':
+                col = 6;
+                break;
+        }
+        try {
+            updateSeatMap(row, col, 'X');
+        } catch (Exception e) {
+            System.out.println("Incorrectly formatted string\n" + e);
+        }
+
+    }
+
     // String methods
     /**
      * toString method override for debugging

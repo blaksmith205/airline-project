@@ -225,8 +225,8 @@
             <TextField fx:id="namebox" promptText="Enter Name" />
             <TextField fx:id="IDbox" promptText="Enter ID" />
             <Region prefHeight="31.0" prefWidth="52.0" HBox.hgrow="ALWAYS" />
-            <Button fx:id="CancelButton" cancelButton="true" mnemonicParsing="false" text="Cancel" />
-            <Button fx:id="Continuebutton" mnemonicParsing="false" text="Continue" />
+            <Button fx:id="cancelButton" cancelButton="true" mnemonicParsing="false" onAction="#close" text="Cancel" />
+            <Button fx:id="continueButton" mnemonicParsing="false" onAction="#reserveFlight" text="Continue" />
          </children>
       </HBox>
       <Label layoutX="117.0" layoutY="672.0" text="Full Name" />

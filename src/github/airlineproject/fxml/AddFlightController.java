@@ -211,7 +211,7 @@ public class AddFlightController implements Initializable {
      * @param header The header string
      * @param content The content String
      */
-    private void showAlertBox(String header, String content) {
+    public static void showAlertBox(String header, String content) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error Dialog");
         alert.setHeaderText(header);
@@ -224,7 +224,7 @@ public class AddFlightController implements Initializable {
      *
      * @param content
      */
-    private void showAlertBox(String content) {
+    public static void showAlertBox(String content) {
         showAlertBox("An Error Occured!", content);
     }
 

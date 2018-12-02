@@ -113,19 +113,28 @@ public class MainMenuController implements Initializable {
     @FXML
     public void makeReservation(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(Main.FXML_LOCATION + "ReservationSeat.fxml"));
-            Parent root = loader.load();
-            ReservationSeatController rsControl = loader.getController();  // Get the controller to pass the selected seat back
-            Stage window = new Stage();
-            window.initModality(Modality.APPLICATION_MODAL);
-            window.setTitle("Reservation");
-            rsControl.setFlight(getFlight(selectedFlight));
-            
-            // Show the scene like the MainMenu
-            Scene scene = new Scene(root);
-            window.setScene(scene);
-            window.showAndWait();   // Wait for the created window to be closed
+            if (getFlight(selectedFlight).getAvailableSeats() > 0) {   // Make sure there are seats available
+                FXMLLoader loader = new FXMLLoader(getClass().getResource(Main.FXML_LOCATION + "ReservationSeat.fxml"));
+                Parent root = loader.load();
+                ReservationSeatController rsControl = loader.getController();  // Get the controller to pass the selected seat back
+                Stage window = new Stage();
+                window.initModality(Modality.APPLICATION_MODAL);
+                window.setTitle("Reservation for " + selectedFlight);
+                rsControl.setFlight(getFlight(selectedFlight)); // set the flight and seat map
 
+                // Show the scene like the MainMenu
+                Scene scene = new Scene(root);
+                window.setScene(scene);
+                window.showAndWait();   // Wait for the created window to be closed
+                
+                // add created passenger
+                if (rsControl.getPassenger() != null) {
+                    passengers.add(rsControl.getPassenger());
+                }
+            } else {
+                AddFlightController.showAlertBox("No more seats available on flight" + selectedFlight);
+
+            }
         } catch (IOException ex) {
             System.err.println("Error occured when loading Reservation Window\n" + ex);
         }
