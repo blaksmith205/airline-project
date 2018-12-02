@@ -4,7 +4,6 @@ import github.airlineproject.main.Main;
 import github.airlineproject.util.*;
 import java.io.IOException;
 import java.net.URL;
-import java.nio.file.FileAlreadyExistsException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.ResourceBundle;
@@ -24,7 +23,7 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author William Blanc <test@email.com>
+ * @author William Blanc and Chente
  */
 public class MainMenuController implements Initializable {
 
@@ -79,7 +78,7 @@ public class MainMenuController implements Initializable {
             if (createdFlight != null) {
                 // create the seat map file for the flight
                 DataFormatter.createFlightFile(createdFlight.getFlight() + ".txt");
-                
+
                 // Append the reservation.txt file
                 FileIO.fileAppender(FileIO.FILE_DIR, "flight.txt", createdFlight.toFileString());
             }
@@ -99,15 +98,16 @@ public class MainMenuController implements Initializable {
 
                 flightChoice.getItems().sort(String::compareTo);    // Use String compare function to sort the list
                 flightChoice.getItems().add(0, "None"); // Re-add None to beginning of the list
-            } else{
+            } else {
                 flightChoice.getItems().add(createdFlight.getFlight());    // Add the created flight number
             }
         }
     }
 
     /**
-     * Makes a reservation for a passenger and updates reservations.txt and passenger array
-     * @param event 
+     * Makes a reservation for a p and updates reservations.txt and p array
+     *
+     * @param event
      */
     @FXML
     public void makeReservation(ActionEvent event) {
@@ -132,7 +132,8 @@ public class MainMenuController implements Initializable {
 
     /**
      * Displays the seat map of a specific flight
-     * @param event 
+     *
+     * @param event
      */
     @FXML
     public void displaySeatMap(ActionEvent event) {
@@ -156,14 +157,36 @@ public class MainMenuController implements Initializable {
 
     }
 
+    /**
+     * Displays passengers for the selected flight
+     *
+     * @param event
+     */
     @FXML
     public void displayPassengers(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(Main.FXML_LOCATION + "PassengerViewer.fxml"));
+            Parent root = loader.load();
+            PassengerViewerController pvControl = loader.getController();  // Get the controller to set table information
+            Stage window = new Stage();
+            window.initModality(Modality.APPLICATION_MODAL);    // Prevent other windows from being accessed
+            window.setTitle("Passenger Viewer");
+            pvControl.setTable(getFilteredPassengers(selectedFlight), "All Passengers for Flight " + selectedFlight);    // Set the table information
 
+            // Show the scene like the MainMenu
+            Scene scene = new Scene(root);
+            window.setScene(scene);
+            window.showAndWait();   // Wait for the created window to be closed
+
+        } catch (Exception ex) {
+            System.err.println("Error occured when loading PassengerViewer.fxml from MainMenuController\n" + ex);
+        }
     }
 
     /**
      * Displays all flights in a table
-     * @param event 
+     *
+     * @param event
      */
     @FXML
     public void displayAllFlights(ActionEvent event) {
@@ -234,8 +257,9 @@ public class MainMenuController implements Initializable {
         for (Flight flight : flights) {
             flightNumbers.add(flight.getFlight());   // Add only the flight numbers from each line
         }
-        flightChoice.getItems().add("None");
         flightChoice.getItems().addAll(flightNumbers);
+        flightChoice.getItems().sort(String::compareTo);    // Sort the choices
+        flightChoice.getItems().add(0, "None");      // Add None to the beginning
 
         // Add listener to the segment 2 choice box
         flightChoice.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
@@ -294,16 +318,19 @@ public class MainMenuController implements Initializable {
 
     /**
      * Obtain the passengers on a specific flight
+     *
      * @param flight: The name of the flight to obtain
-     * @return 
+     * @return
      */
     private ArrayList<Passenger> getFilteredPassengers(String flight) {
         ArrayList<Passenger> filteredPassengers = new ArrayList<>();
-        for (Passenger passenger : passengers) {
-            if (passenger.getFlightNum() == flight) {
-                filteredPassengers.add(passenger);
+        for (Passenger p : passengers) {
+            System.out.println(p.getFlightNum());
+            if (flight.equalsIgnoreCase(p.getFlightNum())) {
+                filteredPassengers.add(p);
             }
         }
+        System.out.println(filteredPassengers);
         return filteredPassengers;
     }
 }
