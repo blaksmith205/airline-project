@@ -115,11 +115,12 @@ public class MainMenuController implements Initializable {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(Main.FXML_LOCATION + "ReservationSeat.fxml"));
             Parent root = loader.load();
-            ReservationSeatController reserveseat = loader.getController();  // Get the controller to pass the selected seat back
+            ReservationSeatController rsControl = loader.getController();  // Get the controller to pass the selected seat back
             Stage window = new Stage();
             window.initModality(Modality.APPLICATION_MODAL);
             window.setTitle("Reservation");
-
+            rsControl.setFlight(getFlight(selectedFlight));
+            
             // Show the scene like the MainMenu
             Scene scene = new Scene(root);
             window.setScene(scene);

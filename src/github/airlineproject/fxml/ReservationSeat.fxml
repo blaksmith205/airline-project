@@ -112,13 +112,13 @@
             </Label>
          </children>
       </HBox>
-      <HBox fx:id="Seatsbox" layoutX="115.0" layoutY="110.0" spacing="20.0">
+      <HBox fx:id="seatsBox" layoutX="115.0" layoutY="110.0" spacing="20.0">
          <children>
             <VBox prefHeight="535.0" prefWidth="50.0" spacing="25.0">
                <children>
                   <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton">
                      <toggleGroup>
-                        <ToggleGroup fx:id="Toggle1" />
+                        <ToggleGroup fx:id="seatToggle" />
                      </toggleGroup>
                   </ToggleButton>
                   <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="ToggleButton" />
@@ -230,6 +230,6 @@
          </children>
       </HBox>
       <Label layoutX="117.0" layoutY="672.0" text="Full Name" />
-      <Label layoutX="328.0" layoutY="672.0" text="ID" />
+      <Label layoutX="290.0" layoutY="672.0" text="ID" />
    </children>
 </AnchorPane>

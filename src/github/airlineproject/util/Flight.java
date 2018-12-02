@@ -309,7 +309,7 @@ public final class Flight {
      * @param num
      * @return
      */
-    private char getChar(int num) {
+    public static char getChar(int num) {
         switch (num) {
             case 0:
                 return 'A';

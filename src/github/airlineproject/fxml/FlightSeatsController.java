@@ -21,8 +21,6 @@ public class FlightSeatsController implements Initializable {
     @FXML
     private Label flightTitle;
 
-    String Text;
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
