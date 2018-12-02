@@ -1,10 +1,8 @@
 package github.airlineproject.fxml;
 
-import github.airlineproject.util.DataFormatter;
 import github.airlineproject.util.FileIO;
 import github.airlineproject.util.Flight;
 import java.net.URL;
-import java.nio.file.FileAlreadyExistsException;
 import java.util.ResourceBundle;
 import java.util.regex.PatternSyntaxException;
 import javafx.event.ActionEvent;
@@ -74,13 +72,12 @@ public class AddFlightController implements Initializable {
         // get arrival time
         String arrivalTime = arriveTime.getText();
         checkList[5] = checkTime(arrivalTime, "Arrival Time");
-        
+
         // Check the list
         if (isFieldsCorrect(checkList)) {
             // Create Flight object
-            createdFlight = new Flight(flightNumber, date, date, arrivalTime, departCity, departCity, 70);
-            createdFlight.setSeatMap();
-            
+            createdFlight = new Flight(flightNumber, date, deptartureTime, arrivalTime, departCity, arriveCity, 70);
+
             // Close the stage and return to caller
             Stage stage = (Stage) numberField.getScene().getWindow();
             stage.close();
@@ -97,11 +94,10 @@ public class AddFlightController implements Initializable {
 
     private boolean checkFlightNumber(String flightNumber) {
         if (flightNumber.length() == 6) {
-            if (flightNumber.substring(0, flightNumber.indexOf("[0-9]")).length() == 2) { // If first 2 characters are letters
+            if (!flightNumber.substring(0, 2).contains("[0-9]")) { // If first 2 characters are letters
                 if (!FileIO.exists(FileIO.FLIGHT_DIR, flightNumber)) {
-                  return true;  
-                }
-                else{
+                    return true;
+                } else {
                     showAlertBox(flightNumber + " already exists. Please create a different flight");
                 }
             } else {
@@ -123,11 +119,17 @@ public class AddFlightController implements Initializable {
     public boolean checkDate(String date) {
         if (date.length() == 10) {
             try {
-                String[] parts = date.split("/");
-                if (Integer.parseInt(parts[1]) > 12) {
+                String[] parts;
+                if (date.contains("/")) {   // Check to see if the date is in right format
+                    parts = date.split("/");
+                    if (Integer.parseInt(parts[1]) > 12) {  // Check to see if the day is not the month
+                        showAlertBox("Date should be of the form dd/mm/yyyy");
+                    } else {
+                        return true;
+                    }
+                } else {
                     showAlertBox("Date should be of the form dd/mm/yyyy");
                 }
-                return true;
             } catch (PatternSyntaxException ex) {
                 showAlertBox("Date should be of the form dd/mm/yyyy");
             }
@@ -148,44 +150,59 @@ public class AddFlightController implements Initializable {
                     showAlertBox(field + " minutes are too large, should be at most 59");
                 }
                 return true;
-            } catch (PatternSyntaxException ex) {
-                showAlertBox(field + " should be of the format hh:mm");
+            } catch (PatternSyntaxException | NumberFormatException ex) {
+                showAlertBox(field + " should be of the format hh:mm on a 24 hr scale");
             }
         } else {
-            showAlertBox(field + " should be of the format hh:mm");
+            showAlertBox(field + " should be of the format hh:mm on a 24 hr scale");
         }
         return false;
     }
 
     public String formatDate(String date) {
         String[] parts = date.split("/");
+        String formattedDate = parts[0];    // Add the day
+
+        // Map the month number to 3 letter month
         switch (Integer.parseInt(parts[1])) {
             case 1:
-                return "Jan";
+                formattedDate += "Jan";
+                break;
             case 2:
-                return "Feb";
+                formattedDate += "Feb";
+                break;
             case 3:
-                return "Mar";
+                formattedDate += "Mar";
+                break;
             case 4:
-                return "Apr";
+                formattedDate += "Apr";
+                break;
             case 5:
-                return "May";
+                formattedDate += "May";
+                break;
             case 6:
-                return "Jun";
+                formattedDate += "Jun";
+                break;
             case 7:
-                return "Jul";
+                formattedDate += "Jul";
+                break;
             case 8:
-                return "Aug";
+                formattedDate += "Aug";
+                break;
             case 9:
-                return "Sep";
+                formattedDate += "Sep";
+                break;
             case 10:
-                return "Oct";
+                formattedDate += "Oct";
+                break;
             case 11:
-                return "Nov";
+                formattedDate += "Nov";
+                break;
             case 12:
-                return "Dec";
+                formattedDate += "Dec";
+                break;
         }
-        return "Err";
+        return (formattedDate + parts[2].substring(2));
     }
 
     /**

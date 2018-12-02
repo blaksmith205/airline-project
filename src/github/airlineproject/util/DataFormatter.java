@@ -4,9 +4,8 @@ import java.nio.file.FileAlreadyExistsException;
 import java.util.ArrayList;
 
 /**
- * This class cleans data obtained from files. For example, creates Passengers
- * objects from reservations.txt or obtains a char array for the seat map.
- *
+ * This class is responsible for file / object interaction.
+ * Data is read from file and formatted into object. Formatted data is written to file
  * @author William Blanc <test@email.com>
  */
 public class DataFormatter {

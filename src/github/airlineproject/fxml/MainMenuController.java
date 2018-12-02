@@ -55,6 +55,9 @@ public class MainMenuController implements Initializable {
     private String selectedFlight;
 
     @FXML
+    /**
+     * Creates a new Flight object
+     */
     public void createFlight(ActionEvent event) {
         Flight createdFlight = null;
         // Open a new window for the flight creation
@@ -73,27 +76,39 @@ public class MainMenuController implements Initializable {
 
             createdFlight = flightController.getFlight();
 
-            // create the seat map file for the flight
-            DataFormatter.createFlightFile(createdFlight.getFlight());
+            if (createdFlight != null) {
+                // create the seat map file for the flight
+                DataFormatter.createFlightFile(createdFlight.getFlight() + ".txt");
+                
+                // Append the reservation.txt file
+                FileIO.fileAppender(FileIO.FILE_DIR, "flight.txt", createdFlight.toFileString());
+            }
+
         } catch (IOException ex) {
             System.err.println("Error occured when loading AddFlight.fxml from MainMenuController\n" + ex);
         }
 
-        // Add flight to the array
-        flights.add(createdFlight);
-
         // Add the created Flight to the ChoiceBox
         if (createdFlight != null) {
-            if (!flightChoice.getItems().contains(createdFlight.getFlight())) {
+            // Add flight to the array
+            flights.add(createdFlight);
+
+            if (flights.size() > 0) {   // check if there are flight objects
                 flightChoice.getItems().remove(0);  // Remove None from beginning of list
                 flightChoice.getItems().add(createdFlight.getFlight());    // Add the created flight number
 
                 flightChoice.getItems().sort(String::compareTo);    // Use String compare function to sort the list
                 flightChoice.getItems().add(0, "None"); // Re-add None to beginning of the list
+            } else{
+                flightChoice.getItems().add(createdFlight.getFlight());    // Add the created flight number
             }
         }
     }
 
+    /**
+     * Makes a reservation for a passenger and updates reservations.txt and passenger array
+     * @param event 
+     */
     @FXML
     public void makeReservation(ActionEvent event) {
         try {
@@ -115,6 +130,10 @@ public class MainMenuController implements Initializable {
 
     }
 
+    /**
+     * Displays the seat map of a specific flight
+     * @param event 
+     */
     @FXML
     public void displaySeatMap(ActionEvent event) {
         try {
@@ -125,7 +144,7 @@ public class MainMenuController implements Initializable {
             window.initModality(Modality.APPLICATION_MODAL);    // Prevent other windows from being accessed
             window.setTitle("Passenger Seats");
             //fsControl.setSeatMap(, "All Passengers");    // Set the table information
-            
+
             // Show the scene like the MainMenu
             Scene scene = new Scene(root);
             window.setScene(scene);
@@ -142,6 +161,10 @@ public class MainMenuController implements Initializable {
 
     }
 
+    /**
+     * Displays all flights in a table
+     * @param event 
+     */
     @FXML
     public void displayAllFlights(ActionEvent event) {
         try {
@@ -233,6 +256,9 @@ public class MainMenuController implements Initializable {
         });
     }
 
+    /**
+     * Initialize files, arrays of flights/passengers, and choice box
+     */
     private void initObjects() {
         // Initialize the files
         initFiles();
@@ -261,8 +287,23 @@ public class MainMenuController implements Initializable {
             FileIO.fileWriter(FileIO.FILE_DIR, "reservations.txt", FileIO.RESERVATION_HEADER);
         }
     }
-    
-    private Flight getFlight(String flightName){
+
+    private Flight getFlight(String flightName) {
         return null;
+    }
+
+    /**
+     * Obtain the passengers on a specific flight
+     * @param flight: The name of the flight to obtain
+     * @return 
+     */
+    private ArrayList<Passenger> getFilteredPassengers(String flight) {
+        ArrayList<Passenger> filteredPassengers = new ArrayList<>();
+        for (Passenger passenger : passengers) {
+            if (passenger.getFlightNum() == flight) {
+                filteredPassengers.add(passenger);
+            }
+        }
+        return filteredPassengers;
     }
 }

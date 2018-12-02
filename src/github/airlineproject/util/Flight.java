@@ -69,7 +69,7 @@ public final class Flight {
      */
     public Flight(String flightNumber, String date, String departureTime, 
             String arrivalTime, String departCity, String destCity, int availableSeats) {
-        this(flightNumber, date, destCity, arrivalTime, departCity, destCity, availableSeats, new char[SEAT_MAP_ROW][SEAT_MAP_COL]);
+        this(flightNumber, date, departureTime, arrivalTime, departCity, destCity, availableSeats, new char[SEAT_MAP_ROW][SEAT_MAP_COL]);
         this.setSeatMap();
     }
 
@@ -89,7 +89,7 @@ public final class Flight {
     public Flight(String flightCode, String number, String date, String depTime,
             String arrivalTime, String departCity, String destCity, int availableSeats,
             char[][] seatMap) {
-        this.flightCode = flightCode;
+        this.flightCode = flightCode.toUpperCase();
         this.number = getFormattedNumber(number);
         this.date = date;
         this.departureTime = depTime;
