@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -7,10 +8,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="772.0" prefWidth="841.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="github.airlineproject.fxml.AllFlightsController">
+<AnchorPane id="AnchorPane" prefHeight="772.0" prefWidth="841.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="github.airlineproject.fxml.AllFlightsController">
    <children>
-      <TableView fx:id="allFlights" layoutY="75.0" prefHeight="696.0" prefWidth="841.0">
+      <TableView fx:id="allFlights" layoutY="75.0" prefHeight="696.0" prefWidth="841.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="60.0">
         <columns>
           <TableColumn fx:id="flightColumn" prefWidth="90.0" text="Flight#" />
           <TableColumn fx:id="departColumn" prefWidth="150.0" text="Depart" />
@@ -26,11 +26,17 @@
       </TableView>
       <HBox alignment="CENTER" layoutY="1.0" prefHeight="74.0" prefWidth="841.0">
          <children>
-            <Label contentDisplay="CENTER" text="All Flights" textAlignment="CENTER">
-               <font>
-                  <Font name="System Bold" size="45.0" />
-               </font>
-            </Label>
+            <Region HBox.hgrow="ALWAYS" />
+            <VBox>
+               <children>
+                  <Label contentDisplay="CENTER" text="All Flights" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <Region HBox.hgrow="ALWAYS" />
          </children>
       </HBox>
    </children>
