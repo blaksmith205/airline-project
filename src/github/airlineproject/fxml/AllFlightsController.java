@@ -6,7 +6,6 @@
 package github.airlineproject.fxml;
 
 import github.airlineproject.util.Flight;
-import github.airlineproject.util.Passenger;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -24,7 +23,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
  */
 public class AllFlightsController implements Initializable {
 
-    
     @FXML
     private TableColumn<Flight, String> departColumn;
 
@@ -48,9 +46,7 @@ public class AllFlightsController implements Initializable {
 
     @FXML
     private TableColumn<Flight, String> arrivetimecolumn;
-    
-    
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         flightColumn.setCellValueFactory(new PropertyValueFactory<>("flight")); // Set column to the flight#
@@ -60,10 +56,11 @@ public class AllFlightsController implements Initializable {
         departtimecolumn.setCellValueFactory(new PropertyValueFactory<>("departureTime"));//set column to show depart time
         arrivetimecolumn.setCellValueFactory(new PropertyValueFactory<>("arrivalTime"));//set column to show arrive time
         passengers.setCellValueFactory(new PropertyValueFactory<>("availableSeats"));//set column to show passengers 
-    }    
+    }
+
     public void setTable(ArrayList<Flight> flights) {
         allFlights.setItems(FXCollections.observableArrayList(flights)); // Set the table values to the passengers
-       
+
     }
-    
+
 }

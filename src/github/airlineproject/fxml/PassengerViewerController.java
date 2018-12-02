@@ -7,11 +7,8 @@ import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -19,7 +16,7 @@ import javafx.stage.Stage;
  * @author William Blanc <test@email.com>
  */
 public class PassengerViewerController implements Initializable {
-    
+
     @FXML
     private TableColumn<Passenger, String> IDColumn;
 

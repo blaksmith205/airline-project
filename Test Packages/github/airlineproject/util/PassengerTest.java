@@ -1,7 +1,6 @@
 package github.airlineproject.util;
 
 import org.junit.*;
-import static org.junit.Assert.*;
 
 /**
  *
@@ -11,16 +10,16 @@ public class PassengerTest {
 
     private Passenger passenger;
 
-    public PassengerTest() { 
+    public PassengerTest() {
     }
 
     @Before
-    public void setUp() throws Exception{
+    public void setUp() throws Exception {
         passenger = new Passenger("222-22-2222", "John", "Smith", "2a", "AA1230");
     }
-    
+
     @After
-    public void tearDonw(){
+    public void tearDonw() {
         passenger = null;
     }
 

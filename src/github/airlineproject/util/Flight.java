@@ -1,7 +1,6 @@
 package github.airlineproject.util;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
  * @author Chente
@@ -59,21 +58,21 @@ public final class Flight {
     /**
      * Convenience constructor for a flight object with the flight code and
      * flight number in the same string, and no inital seatMap
+     *
      * @param flightNumber
      * @param date
      * @param departureTime
      * @param arrivalTime
      * @param departCity
      * @param destCity
-     * @param availableSeats 
+     * @param availableSeats
      */
-    public Flight(String flightNumber, String date, String departureTime, 
+    public Flight(String flightNumber, String date, String departureTime,
             String arrivalTime, String departCity, String destCity, int availableSeats) {
         this(flightNumber, date, departureTime, arrivalTime, departCity, destCity, availableSeats, new char[SEAT_MAP_ROW][SEAT_MAP_COL]);
         this.setSeatMap();
     }
 
-    
     /**
      * Argument Constructor to create a user defined Flight object
      *
@@ -182,17 +181,19 @@ public final class Flight {
     /**
      * Convenience method for setting a new seatMap;
      */
-    public void setSeatMap(){
+    public void setSeatMap() {
         seatMap = new char[SEAT_MAP_ROW][SEAT_MAP_COL];
-        
+
         for (int i = 0; i < seatMap.length; i++) {
             for (int j = 0; j < seatMap[i].length; j++) {
                 seatMap[i][j] = getChar(j);
             }
         }
     }
+
     /**
      * Updates the desired seat map location
+     *
      * @param row: row of the seat
      * @param col: col of the seat
      * @param character: new character to set
@@ -201,8 +202,7 @@ public final class Flight {
         if (availableSeats > 0) {
             if (seatMap[row][col] == 'X') {
                 throw new IllegalArgumentException("This seat is already taken, please select another");
-            }
-            else{
+            } else {
                 seatMap[row][col] = character;
                 availableSeats -= 1;
             }
@@ -301,14 +301,15 @@ public final class Flight {
         }
         return mapString;
     }
-    
+
     /**
      * Maps numbers to chars
+     *
      * @param num
-     * @return 
+     * @return
      */
-    private char getChar(int num){
-        switch (num){
+    private char getChar(int num) {
+        switch (num) {
             case 0:
                 return 'A';
             case 1:

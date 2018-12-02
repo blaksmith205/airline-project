@@ -23,14 +23,12 @@ public class ReservationSeatController implements Initializable {
 
     @FXML
     private Button Continuebutton;
-    
-    
+
     @FXML
     private TextField namebox;
 
     @FXML
     private TextField IDbox;
-
 
     @FXML
     private Button CancelButton;
@@ -41,10 +39,9 @@ public class ReservationSeatController implements Initializable {
     @FXML
     private ToggleGroup Toggle1;
 
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-    
+    }
+
 }

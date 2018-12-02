@@ -16,15 +16,15 @@ import java.util.Scanner;
 public class FileIO {
 
     public static final String FILE_DIR = Paths.get("").toAbsolutePath().toString() + "/Text Files/";
-    
+
     public static final String FLIGHT_DIR = FILE_DIR + "Flights/";
-    
+
     public static final String FLIGHT_HEADER = String.format("%-10s\t%-10s\t%-10s\t%-10s\t%-10s\t%-10s\t%-20s\n",
             "Flight#", "FlightDate", "DepartTime", "ArriveTime", "DepartCity", "DestCity", "AvailableSeats");
 
     public static final String RESERVATION_HEADER = String.format("%-10s\t%-15s\t%-10s\t%-7s\n",
             "ID", "Name", "SeatNumber", "Flight#");
-    
+
     public static final String SEAT_MAP_ROW = String.format("%s %s\t%s %s %s\t%s %s\n",
             "A", "B", "C", "D", "E", "F", "G");
 
@@ -73,7 +73,7 @@ public class FileIO {
      */
     public static ArrayList<String> fileReader(String dir, String fileName) {
         ArrayList<String> lines = new ArrayList<>();
-        try (Scanner reader = new Scanner(Paths.get(dir+fileName))) {
+        try (Scanner reader = new Scanner(Paths.get(dir + fileName))) {
             while (reader.hasNext()) {
                 lines.add(reader.nextLine());
             }
@@ -91,6 +91,6 @@ public class FileIO {
      * @return true if the file exists
      */
     public static boolean exists(String dir, String fileName) {
-        return Paths.get(dir+fileName).toFile().exists();
+        return Paths.get(dir + fileName).toFile().exists();
     }
 }
