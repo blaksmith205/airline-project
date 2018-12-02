@@ -213,12 +213,13 @@ public final class Flight {
     }
 
     /**
-     * Convenience method to convert a 2 character string to proper row, col location
-     * Set the character at location to X
+     * Convenience method to convert a 2 character string to proper row, col
+     * location Set the character at location to X
+     *
      * @param seatNum: The seat number. formatted as [digit][letter]
      */
     public void updateSeatMap(String seatNum) {
-        int row = Integer.parseInt(String.valueOf(seatNum.charAt(0)));
+        int row = Integer.parseInt(String.valueOf(seatNum.charAt(0))) - 1; // Shift digit between 0 and 9
         int col = -1;
         // Map letter to col num
         switch (seatNum.charAt(1)) {
@@ -284,7 +285,7 @@ public final class Flight {
     public String[] getSeatMapRows() {
         ArrayList<String> rows = new ArrayList<String>();
         for (int row = 0; row < seatMap.length; row++) {
-            rows.add(String.format("%c %c\t%c %c %c\t%c %c\n", seatMap[row][0], seatMap[row][1],
+            rows.add(String.format("%d\t%c %c\t%c %c %c\t%c %c\n", row + 1, seatMap[row][0], seatMap[row][1],
                     seatMap[row][2], seatMap[row][3], seatMap[row][4], seatMap[row][5], seatMap[row][6]));
         }
         return rows.toArray(new String[0]);

@@ -126,7 +126,7 @@ public class ReservationSeatController implements Initializable {
             flight.updateSeatMap(passenger.getSeatNum());
             
             // Overwrite flight file
-            DataFormatter.createFlightFile(flight.getFlight() + ".txt");
+            FileIO.fileWriter(FileIO.FLIGHT_DIR, flight.getFlight() + ".txt", flight.getSeatMapRows());
 
             // append reservations.txt
             FileIO.fileAppender(FileIO.FILE_DIR, "reservations.txt", passenger.toFileString());

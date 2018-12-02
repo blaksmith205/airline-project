@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -20,6 +21,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 /**
  * FXML Controller for MainMenu.fxml
@@ -80,7 +82,7 @@ public class MainMenuController implements Initializable {
                 // create the seat map file for the flight
                 DataFormatter.createFlightFile(createdFlight.getFlight() + ".txt");
 
-                // Append the reservation.txt file
+                // Append the flight.txt file
                 FileIO.fileAppender(FileIO.FILE_DIR, "flight.txt", createdFlight.toFileString());
             }
 
@@ -126,7 +128,7 @@ public class MainMenuController implements Initializable {
                 Scene scene = new Scene(root);
                 window.setScene(scene);
                 window.showAndWait();   // Wait for the created window to be closed
-                
+
                 // add created passenger
                 if (rsControl.getPassenger() != null) {
                     passengers.add(rsControl.getPassenger());
@@ -352,5 +354,23 @@ public class MainMenuController implements Initializable {
             }
         }
         return filteredPassengers;
+    }
+
+    /**
+     * Closes the application and saves all created flight maps
+     */
+    public void close() {
+        // get the stage
+        Stage stage = (Stage) segment1.getScene().getWindow();
+        stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+            @Override
+            public void handle(WindowEvent event) {
+                // Overwrite all seat maps for stored flights
+                for(Flight flight: flights){
+                    // Overwrite the flight files
+                    FileIO.fileWriter(FileIO.FLIGHT_DIR, flight.getFlight() + ".txt", flight.getSeatMapRows());
+                }
+            }
+        });
     }
 }
