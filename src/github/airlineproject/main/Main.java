@@ -7,8 +7,9 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
- *
- * @author William Blanc <test@email.com>
+ *  Airline project created by:
+ *  William Blanc
+ *  Vicente Ramos
  */
 public class Main extends Application {
     
