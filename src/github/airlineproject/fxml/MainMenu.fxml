@@ -31,7 +31,10 @@
             </VBox>
             <VBox fx:id="segment2" prefWidth="250.0" spacing="10.0">
                <children>
-                  <Label text="Make Reservation" />
+                  <Label text="Flight Functions">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
                   <ChoiceBox fx:id="flightChoice" prefHeight="31.0" prefWidth="250.0" HBox.hgrow="ALWAYS" />
                   <HBox>
                      <children>
