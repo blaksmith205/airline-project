@@ -75,7 +75,6 @@ public class AddFlightController implements Initializable {
         String date = "";
         if (selectedDate != null) {
             date = selectedDate.format(dateFormatter); // Format the selected date to ddMMMyy
-            System.out.println(date);
             checkList[3] = true;
         } else{
             checkList[3] = false;
