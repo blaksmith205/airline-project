@@ -3,14 +3,20 @@ package github.airlineproject.fxml;
 import github.airlineproject.util.FileIO;
 import github.airlineproject.util.Flight;
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 import java.util.regex.PatternSyntaxException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ComboBoxBase;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javafx.scene.control.DatePicker;
+import javafx.scene.layout.HBox;
 
 /**
  * FXML Controller class for AddFlight.fxml
@@ -20,7 +26,7 @@ import javafx.stage.Stage;
 public class AddFlightController implements Initializable {
 
     @FXML
-    private TextField fromDate;
+    private HBox bottomBox;
 
     @FXML
     private TextField arriveTime;
@@ -38,6 +44,10 @@ public class AddFlightController implements Initializable {
     private TextField numberField;
 
     private Flight createdFlight;
+
+    private DatePicker datePicker;
+    private LocalDate selectedDate; // LocalDate object for the selected date
+    private DateTimeFormatter dateFormatter; // Formatter for dates
 
     /**
      * Passes the created Flight object back to caller
@@ -63,7 +73,7 @@ public class AddFlightController implements Initializable {
         String arriveCity = toBox.getText();
         checkList[2] = true;
         // get date
-        String date = fromDate.getText();
+        String date = selectedDate.format(dateFormatter);
         checkList[3] = checkDate(date);
         date = formatDate(date);
         // get dept time
@@ -89,7 +99,16 @@ public class AddFlightController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        dateFormatter = DateTimeFormatter.ofPattern("dd/mm/uuuu"); // Formatter for dates of form dd/mm/yyyy
+
+        datePicker = new DatePicker(LocalDate.now());    // Create a DatePicker
+        datePicker.prefWidth(187);
+
+        datePicker.setOnAction((ActionEvent e) -> { // Obtain the date selected
+            selectedDate = datePicker.getValue();
+        });
+        
+        bottomBox.getChildren().add(0, datePicker);
     }
 
     private boolean checkFlightNumber(String flightNumber) {
@@ -242,5 +261,12 @@ public class AddFlightController implements Initializable {
             }
         }
         return true;
+    }
+
+    @FXML
+    private void selectDate(ActionEvent event) {
+        /*Stage stage = (Stage) bott.getScene().getWindow();
+        stage.setScene(new Scene(datePicker));
+        stage.show();*/
     }
 }
