@@ -33,8 +33,9 @@
                   <Label text="Arrival Time " />
                </children>
             </HBox>
-            <HBox fx:id="bottomBox" alignment="CENTER" prefHeight="31.0" prefWidth="661.0" spacing="50.0">
+            <HBox alignment="CENTER" prefHeight="31.0" prefWidth="661.0" spacing="50.0">
                <children>
+                  <DatePicker fx:id="datePicker" editable="false" prefHeight="25.0" prefWidth="150.0" />
                   <TextField fx:id="departTime" promptText="hh:mm" />
                   <TextField fx:id="arriveTime" promptText="hh:mm" />
                </children>
