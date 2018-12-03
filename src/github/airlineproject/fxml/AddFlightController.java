@@ -10,13 +10,10 @@ import java.util.regex.PatternSyntaxException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.ComboBoxBase;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.scene.control.DatePicker;
-import javafx.scene.layout.HBox;
 
 /**
  * FXML Controller class for AddFlight.fxml
@@ -76,7 +73,7 @@ public class AddFlightController implements Initializable {
         if (selectedDate != null) {
             date = selectedDate.format(dateFormatter); // Format the selected date to ddMMMyy
             checkList[3] = true;
-        } else{
+        } else {
             checkList[3] = false;
             showAlertBox("Departing date has to be selected");
         }
