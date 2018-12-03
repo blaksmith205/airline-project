@@ -7,8 +7,9 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
- *
- * @author William Blanc <test@email.com>
+ *  Airline project created by:
+ *  William Blanc
+ *  Vicente Ramos
  */
 public class Main extends Application {
     
@@ -30,5 +31,4 @@ public class Main extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    
 }

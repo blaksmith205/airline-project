@@ -1,0 +1,4 @@
+Flight#   	FlightDate	DepartTime	ArriveTime	DepartCity	DestCity  	AvailableSeats      
+AA1140  	20Dec15 	23:00   	02:00   	FORT_WAYNE	ORLANDO 	69
+AA1230  	05Nov15 	11:30   	14:00   	BLACKSBURG	BOCA_RATON	69               
+AA1150    	01Jan19   	05:00     	17:00     	MIAMI     	HOUSTON   	69                  
