@@ -3,6 +3,8 @@ package github.airlineproject.fxml;
 import github.airlineproject.util.FileIO;
 import github.airlineproject.util.Flight;
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 import java.util.regex.PatternSyntaxException;
 import javafx.event.ActionEvent;
@@ -11,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javafx.scene.control.DatePicker;
 
 /**
  * FXML Controller class for AddFlight.fxml
@@ -18,9 +21,6 @@ import javafx.stage.Stage;
  * @author William
  */
 public class AddFlightController implements Initializable {
-
-    @FXML
-    private TextField fromDate;
 
     @FXML
     private TextField arriveTime;
@@ -37,7 +37,13 @@ public class AddFlightController implements Initializable {
     @FXML
     private TextField numberField;
 
+    @FXML
+    private DatePicker datePicker;
+
     private Flight createdFlight;
+
+    private LocalDate selectedDate; // LocalDate object for the selected date
+    private DateTimeFormatter dateFormatter; // Formatter for dates
 
     /**
      * Passes the created Flight object back to caller
@@ -63,9 +69,15 @@ public class AddFlightController implements Initializable {
         String arriveCity = toBox.getText();
         checkList[2] = true;
         // get date
-        String date = fromDate.getText();
-        checkList[3] = checkDate(date);
-        date = formatDate(date);
+        String date = "";
+        if (selectedDate != null) {
+            date = selectedDate.format(dateFormatter); // Format the selected date to ddMMMyy
+            checkList[3] = true;
+        } else {
+            checkList[3] = false;
+            showAlertBox("Departing date has to be selected");
+        }
+
         // get dept time
         String deptartureTime = departTime.getText();
         checkList[4] = checkTime(deptartureTime, "Departure Time");
@@ -89,7 +101,11 @@ public class AddFlightController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        dateFormatter = DateTimeFormatter.ofPattern("ddMMMuu"); // Formatter for dates of form dd/mm/yyyy
+
+        datePicker.setOnAction((ActionEvent e) -> { // Obtain the date selected
+            selectedDate = datePicker.getValue();
+        });
     }
 
     private boolean checkFlightNumber(String flightNumber) {
@@ -110,36 +126,7 @@ public class AddFlightController implements Initializable {
         return false;
     }
 
-    /**
-     * Check to see if the date is properly formatted
-     *
-     * @param date: The string representation of the date
-     * @return
-     */
-    public boolean checkDate(String date) {
-        if (date.length() == 10) {
-            try {
-                String[] parts;
-                if (date.contains("/")) {   // Check to see if the date is in right format
-                    parts = date.split("/");
-                    if (Integer.parseInt(parts[1]) > 12) {  // Check to see if the day is not the month
-                        showAlertBox("Date should be of the form dd/mm/yyyy");
-                    } else {
-                        return true;
-                    }
-                } else {
-                    showAlertBox("Date should be of the form dd/mm/yyyy");
-                }
-            } catch (PatternSyntaxException ex) {
-                showAlertBox("Date should be of the form dd/mm/yyyy");
-            }
-        } else {
-            showAlertBox("Date should be of the form dd/mm/yyyy");
-        }
-        return false;
-    }
-
-    public boolean checkTime(String time, String field) {
+    private boolean checkTime(String time, String field) {
         if (time.length() == 5) {
             try {
                 String[] parts = time.split(":");
@@ -157,52 +144,6 @@ public class AddFlightController implements Initializable {
             showAlertBox(field + " should be of the format hh:mm on a 24 hr scale");
         }
         return false;
-    }
-
-    public String formatDate(String date) {
-        String[] parts = date.split("/");
-        String formattedDate = parts[0];    // Add the day
-
-        // Map the month number to 3 letter month
-        switch (Integer.parseInt(parts[1])) {
-            case 1:
-                formattedDate += "Jan";
-                break;
-            case 2:
-                formattedDate += "Feb";
-                break;
-            case 3:
-                formattedDate += "Mar";
-                break;
-            case 4:
-                formattedDate += "Apr";
-                break;
-            case 5:
-                formattedDate += "May";
-                break;
-            case 6:
-                formattedDate += "Jun";
-                break;
-            case 7:
-                formattedDate += "Jul";
-                break;
-            case 8:
-                formattedDate += "Aug";
-                break;
-            case 9:
-                formattedDate += "Sep";
-                break;
-            case 10:
-                formattedDate += "Oct";
-                break;
-            case 11:
-                formattedDate += "Nov";
-                break;
-            case 12:
-                formattedDate += "Dec";
-                break;
-        }
-        return (formattedDate + parts[2].substring(2));
     }
 
     /**
